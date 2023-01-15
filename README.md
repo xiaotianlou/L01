@@ -1,7 +1,7 @@
 # A1 - Piraten Karpen
 
   * Author: < xiaotian lou >
-  * Email: < Your email here >
+  * Email: < loux8@mcmaster.ca >
 
 ## Build and Execution
 
