@@ -9,5 +9,8 @@ public class PiratenKarpen {
         System.out.println(myDice.roll());
         System.out.println("That's all folks!");
     }
-    
+
+
+    //draft: skull lock,three skull stop with 0 except in island of skull
+
 }
