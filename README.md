@@ -1,6 +1,6 @@
 # A1 - Piraten Karpen
 
-  * Author: < You name here >
+  * Author: < xiaotian lou >
   * Email: < Your email here >
 
 ## Build and Execution
