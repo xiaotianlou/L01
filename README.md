@@ -31,10 +31,10 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | :-:  |:-:  |---       | :-:     | :-:       | :-:       |
 | x   | F01 | Roll a dice |  S | 01/01/23 |  |
 | x   | F02 | Roll the number of dice up to eight dices  |  B (F01) |   |
-| x   | F03 | Select how many games as command-line arg.  |  P  |   |
+| x   | F03 | end the program with 42 game  |  P  |   |
 | x   | F04 | end of turn with three cranes | P | |
 | x   | F05 | Player keeping random dice at their turn | B (F02) | | 
-| x   | F06 | Score points: 3-of-a-kind | B (F04) | | 
-| x   | F07 | end the program with 42 game | | |
+| x   | F06 | Score points: 100 * (diamonds + gold coin) | B (F04) | | 
+| x   | F07 | end the game with 6000 point for 1 player | | |
 | x  |F08  |print percentage of win for each player | :-:     | :-:       | :-:       |
 
