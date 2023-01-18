@@ -1,4 +1,5 @@
 import com.sun.source.tree.BinaryTree;
+import pk.Ai_player;
 import pk.Dice;
 import pk.Player;
 
@@ -11,10 +12,8 @@ public class PiratenKarpen {
         Dice myDice = new Dice();
         System.out.println(myDice.roll());
         System.out.println("That's all folks!");
-        Player p1 = new Player("p1");
+        Ai_player p1 = new Ai_player("p1");
         p1.Init_round();
-
-
 
     }
 
