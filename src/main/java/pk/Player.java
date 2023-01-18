@@ -1,11 +1,14 @@
 package pk;
 
 public class Player {
-    String name;
+    private String name;
     Dice[] dice_bag = new Dice[8];
     private int score;
     public int getScore(){
         return this.score;
+    }
+    public String getName(){
+        return this.name;
     }
     public Player(String name) {
         this.name = name;
