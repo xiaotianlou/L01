@@ -8,14 +8,14 @@ public class PiratenKarpen {
     public static void main(String[] args) throws Exception {
 
         System.out.println("Welcome to Piraten Karpen Simulator!");
-        int total;
-        int p1w = 0;
-        intp2w = 0;
+        int total=48;
+        double p1w = 0;
+        double p2w = 0;
         AiStrategy ai = new Ai_rand_mode();
         Ai_player p1 = new Ai_player("p1", ai);
         Ai_player p2 = new Ai_player("p2", ai);
 
-        for (int i = 0; i < 48; i++) {
+        for (int i = 0; i < total; i++) {
             while (true) {
                 p1.Init_round();
                 p2.Init_round();
@@ -26,9 +26,11 @@ public class PiratenKarpen {
                     } else {
                         if (p1.getScore() > p2.getScore()) {
                             System.out.println(p1.getName() + " win");
+                            p1w++;
                             break;
                         } else {
                             System.out.println(p2.getName() + " win");
+                            p2w++;
                             break;
                         }
                     }
@@ -36,6 +38,7 @@ public class PiratenKarpen {
             }
 
         }
+        System.out.println("p1:"+p1w/total);
     }
 
 
