@@ -6,10 +6,7 @@ public class PiratenKarpen {
     public static void main(String[] args) throws Exception {
 
         System.out.println("Welcome to Piraten Karpen Simulator!");
-        System.out.println("I'm rolling a dice");
-        Dice myDice = new Dice();
-        System.out.println(myDice.roll());
-        System.out.println("That's all folks!");
+
         AiStrategy ai = new Ai_rand_mode();
         Ai_player p1 = new Ai_player("p1",ai);
         Ai_player p2 = new Ai_player("p2",ai);

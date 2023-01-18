@@ -23,7 +23,6 @@ public class Player {
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
         }
-        print_dice_bag();
         end_turn_check();
 
     }
@@ -41,22 +40,24 @@ public class Player {
     }
 
     public void end_turn_check() throws Exception {
+        print_dice_bag();
         int count = 0;
-        if (score >= 6000) {
-            System.out.println("player" + name + " first get the 6000 with score " + score);
-            throw new Exception(name + " win");
-        }
+//        if (score >= 6000) {
+//            System.out.println("player" + name + " first get the 6000 with score " + score);
+//            throw new Exception(name + " win");
+//        }
 
         for (Dice d : dice_bag) {
             if (d.face == Faces.SKULL) {
                 count++;
             }
-            if (count >= 3) {
-                System.out.println("------------------end the term-------------------");
-                score_cal();
-            } else {
-                turn_act();
-            }
+        }
+        System.out.println("count="+count);
+        if (count >= 3) {
+            System.out.println("------------------end the term-------------------");
+            score_cal();
+        } else {
+            turn_act();
         }
     }
 
@@ -69,9 +70,11 @@ public class Player {
             for (int i = 0; i < 8; i++) {
                 dice_bag[i].roll();
             }
+
             end_turn_check();
         } else {
             System.out.println("not success reroll at least 2 valid,doing again");
+
             end_turn_check();
         }
 
