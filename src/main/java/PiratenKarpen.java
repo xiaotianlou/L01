@@ -8,7 +8,7 @@ public class PiratenKarpen {
     public static void main(String[] args) throws Exception {
 
         System.out.println("Welcome to Piraten Karpen Simulator!");
-        int total=48;
+        int total = 48;
         double p1w = 0;
         double p2w = 0;
         AiStrategy ai1 = new Ai_rand_mode();
@@ -43,11 +43,10 @@ public class PiratenKarpen {
                     }
                 }
             }
-
         }
-        System.out.println("p1:"+p1w/total);
-        System.out.println("p2:"+p2w/total);
-        System.out.println("+"+(p1w/total+p2w/total));
+        System.out.println("p1:" + p1w / total);
+        System.out.println("p2:" + p2w / total);
+        System.out.println("+" + (p1w / total + p2w / total));
     }
 
 
