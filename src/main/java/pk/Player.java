@@ -3,8 +3,10 @@ package pk;
 public class Player {
     String name;
     Dice[] dice_bag = new Dice[8];
-    int score;
-
+    private int score;
+    public int getScore(){
+        return this.score;
+    }
     public Player(String name) {
         this.name = name;
         this.score = 0;
@@ -42,8 +44,8 @@ public class Player {
         print_dice_bag();
         int count = 0;
         if (score >= 6000) {
-            System.out.println("player" + name + " win by first get the 6000 with score " + score);
-            System.exit(0);
+            System.out.println("player" + name + " get the 6000 with score " + score);
+            return;
         }
 
         for (Dice d : dice_bag) {

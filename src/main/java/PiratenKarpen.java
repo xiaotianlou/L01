@@ -3,6 +3,7 @@ import pk.*;
 
 public class PiratenKarpen {
 
+
     public static void main(String[] args) throws Exception {
 
         System.out.println("Welcome to Piraten Karpen Simulator!");
@@ -13,6 +14,7 @@ public class PiratenKarpen {
         for (int i = 0; i <50 ; i++) {
             p1.Init_round();
             p2.Init_round();
+            if(p1)
         }
     }
 
