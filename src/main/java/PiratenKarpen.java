@@ -50,7 +50,4 @@ public class PiratenKarpen {
         System.out.println("+"+(p1w/total+p2w/total));
     }
 
-
-    //draft: skull lock,three skull stop with 0 except in island of skull
-
 }
