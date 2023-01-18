@@ -12,11 +12,11 @@ public class Player {
     }
 
     public void print_dice_bag() {
-        System.out.print("player " + name + " have dice: ");
+        System.out.print("------------player " + name + " have dice: ");
         for (Dice i : dice_bag) {
             System.out.print(i.face + " ");
         }
-        System.out.println();
+        System.out.println("---------------------");
     }
 
     public void Init_round() {
@@ -33,17 +33,17 @@ public class Player {
     }
 
     public void score_cal() {
-        for (Dice d:dice_bag){
-            if (d.face==Faces.DIAMOND||d.face==Faces.GOLD)
-                this.score+=100;
-            System.out.println("Player "+name+"has the score "+score);
+        for (Dice d : dice_bag) {
+            if (d.face == Faces.DIAMOND || d.face == Faces.GOLD)
+                this.score += 100;
+            System.out.println("Player " + name + " has the score " + score);
         }
     }
 
     public void end_turn_check() {
         int count = 0;
-        if(score>=6000){
-            System.out.println("player"+name+" first get the 6000 with score "+score);
+        if (score >= 6000) {
+            System.out.println("player" + name + " first get the 6000 with score " + score);
             return;
         }
         for (Dice d : dice_bag) {

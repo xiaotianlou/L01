@@ -12,8 +12,9 @@ public class PiratenKarpen {
         System.out.println("That's all folks!");
         AiStrategy ai = new Ai_rand_mode();
         Ai_player p1 = new Ai_player("p1",ai);
-        p1.Init_round();
         Ai_player p2 = new Ai_player("p2",ai);
+        p1.Init_round();
+        p2.Init_round();
 
     }
 
