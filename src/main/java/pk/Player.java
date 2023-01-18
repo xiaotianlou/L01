@@ -42,10 +42,10 @@ public class Player {
     public void end_turn_check() throws Exception {
         print_dice_bag();
         int count = 0;
-//        if (score >= 6000) {
-//            System.out.println("player" + name + " first get the 6000 with score " + score);
-//            throw new Exception(name + " win");
-//        }
+        if (score >= 6000) {
+            System.out.println("player" + name + " win by first get the 6000 with score " + score);
+            System.exit(0);
+        }
 
         for (Dice d : dice_bag) {
             if (d.face == Faces.SKULL) {
