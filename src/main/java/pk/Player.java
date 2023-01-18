@@ -35,8 +35,8 @@ public class Player {
         for (Dice d : dice_bag) {
             if (d.face == Faces.DIAMOND || d.face == Faces.GOLD)
                 this.score += 100;
-            System.out.println("Player " + name + " has the score " + score);
         }
+        System.out.println("Player " + name + " has the score " + score);
     }
 
     public void end_turn_check() throws Exception {
