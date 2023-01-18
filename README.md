@@ -31,13 +31,13 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | :-:  |:-:  |---       | :-:     | :-:       | :-:       |
 | x   | F01 | Roll a dice |  S | 01/01/23 |  |
 | x   | F02 | Roll the number of dice up to eight dices  |  B (F01) |   |
-| x   |F04 | end the program with 42 game  |  P  |   |
-| x   | F05 | end of turn with three and more cranes | P | |
-| x   | F06 | 2 AI Player using same logical  | B (F02) | |
-| x   | F07 | strategy random dice to keep until end  | B (F02) | |
-| x   | F08 | Score points: 100 * (diamonds + gold coin) | B (F04) | | 
-| x   | F09 | end the game with 6000 point for 1 player | | |
-| x  |F10  |print percentage of win for each player | :-:     | :-:       | :-:       |
-| x  |F11  | | :-:     | :-:       | :-:       |
+| x   |F03 | end the program with 42 game  |  P  |   |
+| x   | F04 | end of turn with three and more cranes | P | |
+| x   | F05 | 2 AI Player using same logical  | B (F02) | |
+| x   | F06 | strategy random dice to keep until end  | B (F02) | |
+| x   | F07 | Score points: 100 * (diamonds + gold coin) | B (F04) | | 
+| x   | F08 | end the game with 6000 point for 1 player | | |
+| x  |F9  |print percentage of win for each player | :-:     | :-:       | :-:       |
+| x  |F10  | | :-:     | :-:       | :-:       |
 
 
