@@ -19,7 +19,7 @@ public class Player {
         System.out.println("---------------------");
     }
 
-    public void Init_round() {
+    public void Init_round() throws Exception {
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
         }
@@ -28,7 +28,7 @@ public class Player {
 
     }
 
-    public void turn_act() {
+    public void turn_act() throws Exception {
         System.out.println("player inter");
     }
 
@@ -40,12 +40,13 @@ public class Player {
         }
     }
 
-    public void end_turn_check() {
+    public void end_turn_check() throws Exception {
         int count = 0;
         if (score >= 6000) {
             System.out.println("player" + name + " first get the 6000 with score " + score);
-            return;
+            throw new Exception(name + " win");
         }
+
         for (Dice d : dice_bag) {
             if (d.face == Faces.SKULL) {
                 count++;
@@ -59,7 +60,7 @@ public class Player {
         }
     }
 
-    public void re_roll(boolean[] index) {
+    public void re_roll(boolean[] index) throws Exception {
         int valid_count = 0;
         for (int i = 0; i < 8; i++) {
             if (index[i] && dice_bag[i].face != Faces.SKULL) valid_count++;
@@ -70,7 +71,8 @@ public class Player {
             }
             end_turn_check();
         } else {
-            System.out.println("not success reroll at least 2 valid,do again");
+            System.out.println("not success reroll at least 2 valid,doing again");
+            end_turn_check();
         }
 
     }

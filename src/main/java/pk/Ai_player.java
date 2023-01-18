@@ -6,7 +6,7 @@ public class Ai_player extends Player{
         super(name);
         this.mode=mode;
     }
-    public void turn_act() {
+    public void turn_act() throws Exception {
         mode.turn_acting(this);
     }
 
