@@ -26,5 +26,19 @@ public class Player {
         }
         print_dice_bag();
     }
+    public void re_roll(boolean[] index){
+        int valid_count=0;
+        Dice []tempbag=dice_bag.clone();
+        for (int i = 0; i < 8; i++) {
+            if (index[i]){
+                if(dice_bag[i].face!=Faces.SKULL){
+                    valid_count++;
+                }
+            }
+
+
+        }
+
+    }
 
 }
