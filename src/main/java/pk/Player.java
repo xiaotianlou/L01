@@ -1,18 +1,21 @@
 package pk;
 
 public class Player {
-    private String name;
+    private final String name;
     Dice[] dice_bag = new Dice[8];
     private int score;
-    public int getScore(){
-        return this.score;
-    }
-    public String getName(){
-        return this.name;
-    }
+
     public Player(String name) {
         this.name = name;
         this.score = 0;
+    }
+
+    public int getScore() {
+        return this.score;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public void print_dice_bag() {
@@ -31,6 +34,10 @@ public class Player {
 
     }
 
+    public void restart() {
+        score = 0;
+    }
+
     public void turn_act() throws Exception {
         System.out.println("player inter");
     }
@@ -44,7 +51,7 @@ public class Player {
     }
 
     public void end_turn_check() throws Exception {
-        print_dice_bag();
+//        print_dice_bag();
         int count = 0;
         if (score >= 6000) {
             System.out.println("player" + name + " get the 6000 with score " + score);
@@ -56,7 +63,7 @@ public class Player {
                 count++;
             }
         }
-        System.out.println("count="+count);
+//        System.out.println("count="+count);
         if (count >= 3) {
             System.out.println("------------------end the term-------------------");
             score_cal();
@@ -72,13 +79,14 @@ public class Player {
         }
         if (valid_count >= 2) {
             for (int i = 0; i < 8; i++) {
-                if(index[i]){
-                dice_bag[i].roll();
-            }}
+                if (index[i]) {
+                    dice_bag[i].roll();
+                }
+            }
 
             end_turn_check();
         } else {
-            System.out.println("not success reroll at least 2 valid,doing again");
+//            System.out.println("not success reroll at least 2 valid,doing again");
 
             end_turn_check();
         }
