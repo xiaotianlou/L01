@@ -1,3 +1,4 @@
+import com.sun.source.tree.BinaryTree;
 import pk.Dice;
 
 public class PiratenKarpen {
