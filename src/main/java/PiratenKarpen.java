@@ -12,7 +12,7 @@ public class PiratenKarpen {
         Dice myDice = new Dice();
         System.out.println(myDice.roll());
         System.out.println("That's all folks!");
-        Ai_player p1 = new Ai_player("p1");
+        Player p1 = new Player("p1");
         p1.Init_round();
 
     }

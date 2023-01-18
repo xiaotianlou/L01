@@ -11,6 +11,7 @@ public class Player {
     public Player(String name){
         this.name=name;
     }
+
     public void print_dice_bag(){
         System.out.print("player "+name+" have dice: ");
         for (Dice i: dice_bag){
