@@ -2,7 +2,6 @@ package pk;
 
 public class Player {
     String name;
-    Dice ds = new Dice();
     Dice[] dice_bag = new Dice[8];
     int score;
 
@@ -68,8 +67,9 @@ public class Player {
         }
         if (valid_count >= 2) {
             for (int i = 0; i < 8; i++) {
+                if(index[i]){
                 dice_bag[i].roll();
-            }
+            }}
 
             end_turn_check();
         } else {
