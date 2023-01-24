@@ -2,6 +2,7 @@ package pk;
 
 
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Player {
     private final String name;
@@ -47,7 +48,8 @@ public class Player {
     }
     static HashMap<Faces,Integer> store_temp = new HashMap<>();
     public void score_cal() {
-        int score_change = 0;
+        AtomicInteger score_change = new AtomicInteger();
+        int Full_chest_counter=0;
         for (Faces f: Faces.values()){
             store_temp.put(f,0);
         }
@@ -55,9 +57,21 @@ public class Player {
             store_temp.put(d.face,store_temp.get(d.face)+1);
         }
 
+        store_temp.entrySet().stream().forEach((entry)->{//combine mark
+            int value= entry.getValue();
+           if(value>=5){
+               score_change.addAndGet((int) (500*Math.pow(2,value-5)));
+           }else if(value>=3){
+               score_change.addAndGet(100*(value-2));
+           }
+        });
 
-        this.score += score_change;
-        MyLogger.log.info("Player "+name+" get "+score_change+" in this term");
+
+
+
+
+        this.score+=score_change.get();
+        MyLogger.log.info("Player "+name+" get "+score_change.get()+" in this term");
         MyLogger.log.info("Player " + name + " has the score " + score);
     }
 
