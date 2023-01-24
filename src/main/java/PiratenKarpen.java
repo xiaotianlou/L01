@@ -1,14 +1,16 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pk.AiStrategy;
 import pk.Ai_player;
 import pk.Ai_rand_mode;
 
 public class PiratenKarpen {
 
-
+static Logger log = LogManager.getLogger(PiratenKarpen.class);
     public static void main(String[] args) throws Exception {
 
         System.out.println("Welcome to Piraten Karpen Simulator!");
-        int total = 42;
+        int total = 1000000;
         double p1w = 0;
         double p2w = 0;
 
@@ -21,6 +23,7 @@ public class PiratenKarpen {
         for (int i = 0; i < total; i++) {
             while (true) {
                 p1.Init_round();
+                Thread.sleep(1000);
                 p2.Init_round();
 
                 if (p1.getScore() >= 6000) {
@@ -47,9 +50,9 @@ public class PiratenKarpen {
                 }
             }
         }
-        System.out.println("p1:" + p1w / total);
-        System.out.println("p2:" + p2w / total);
-        System.out.println("+" + (p1w / total + p2w / total));
+        log.debug("p1:" + p1w / total);
+        log.debug("p2:" + p2w / total);
+        log.debug("+" + (p1w / total + p2w / total));
     }
 
 

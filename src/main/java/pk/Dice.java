@@ -15,7 +15,6 @@ public class Dice {
 //            System.out.println("Skull can not reroll,Automatically ignored");
             return face;
         }
-
         int howManyFaces = Faces.values().length;
 
 //        System.out.println("  (DEBUG) there are " + howManyFaces + " faces");

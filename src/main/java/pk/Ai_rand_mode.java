@@ -18,8 +18,7 @@ public class Ai_rand_mode implements AiStrategy {
         for (int i = 0; i < temp.length; i++) {
             temp[i] = rad.nextBoolean();
         }
-        log.trace("rolling                         "+ Arrays.toString(temp));
-//        System.out.println("rolling                         "+ Arrays.toString(temp));
+        log.trace("rolling"+ Arrays.toString(temp));
         p.re_roll(temp);
 
     }

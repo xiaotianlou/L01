@@ -15,6 +15,10 @@ public class Player {
     public Player(String name) {
         this.name = name;
         this.score = 0;
+        for (int i = 0; i < dice_bag.length; i++) {
+            dice_bag[i] = new Dice();
+
+        }
     }
 
     public int getScore() {
@@ -26,17 +30,17 @@ public class Player {
     }
 
     public void print_dice_bag() {
-        System.out.print("------------player " + name + " have dice: ");
+        String str="player " + name + " have dice: ";
         for (Dice i : dice_bag) {
-            System.out.print(i.face + " ");
+           str= str.concat(i.face + " ");
+
         }
-        System.out.println("---------------------");
+//       str= str.concat("---------------------");
+        log.trace(str);
     }
 
     public void Init_round() throws Exception {
-        for (int i = 0; i < dice_bag.length; i++) {
-            dice_bag[i] = new Dice();
-        }
+        //can move to cons
         end_turn_check();
 
     }
@@ -54,7 +58,6 @@ public class Player {
                 this.score += 100;
         }
         log.trace("Player " + name + " has the score " + score);
-//        System.out.println("Player " + name + " has the score " + score);
     }
 
     public void end_turn_check() throws Exception {
@@ -62,7 +65,7 @@ public class Player {
         int count = 0;
         if (score >= 6000) {
             log.trace("player" + name + " get the 6000 with score " + score);
-//            System.out.println("player" + name + " get the 6000 with score " + score);
+
             return;
         }
 
@@ -73,7 +76,7 @@ public class Player {
         }
         System.out.println("count="+count);
         if (count >= 3) {
-            System.out.println("------------------end the term-------------------");
+            log.trace("------------------End The Term-------------------");
             score_cal();
         } else {
             turn_act();
@@ -87,6 +90,7 @@ public class Player {
         }
         if (valid_count >= 2) {
             for (int i = 0; i < 8; i++) {
+
                 if (index[i]) {
                     dice_bag[i].roll();
                 }
