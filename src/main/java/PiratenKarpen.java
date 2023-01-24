@@ -7,35 +7,38 @@ import pk.Ai_rand_mode;
 import pk.MyLogger;
 
 public class PiratenKarpen {
-
-static Logger log = LogManager.getLogger(PiratenKarpen.class);
-    public static void main(String[] args) throws Exception {
-//        MyLogger.changeLoggerLevel("trace");
+    public static void startMode(String[] args){
         if(args.length!=0){
-                switch (args[0]){
-                    case "debug":
-                        MyLogger.changeLoggerLevel("debug");
-                        break;
-                    case "info":
-                        MyLogger.changeLoggerLevel("info");
-                        break;
-                    case "warn":
-                        MyLogger.changeLoggerLevel("warn");
-                        break;
-                    case "error":
-                        MyLogger.changeLoggerLevel("error");
-                        break;
-                    case"fatal":
-                        MyLogger.changeLoggerLevel("fatal");
-                    case"trace":
-                        MyLogger.changeLoggerLevel("trace");
-                    default:
-                        break;
-                }
+            switch (args[0]){
+                case "debug":
+                    MyLogger.changeLoggerLevel("debug");
+                    break;
+                case "info":
+                    MyLogger.changeLoggerLevel("info");
+                    break;
+                case "warn":
+                    MyLogger.changeLoggerLevel("warn");
+                    break;
+                case "error":
+                    MyLogger.changeLoggerLevel("error");
+                    break;
+                case"fatal":
+                    MyLogger.changeLoggerLevel("fatal");
+                case"trace":
+                    MyLogger.changeLoggerLevel("trace");
+                default:
+                    break;
+            }
 
 
         }
 
+    }
+
+static Logger log = LogManager.getLogger(PiratenKarpen.class);
+    public static void main(String[] args) throws Exception {
+//        MyLogger.changeLoggerLevel("trace");
+        startMode(args);
         System.out.println("Welcome to Piraten Karpen Simulator!");
         int total = 42;
         double p1w = 0;
