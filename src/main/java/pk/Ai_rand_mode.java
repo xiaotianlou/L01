@@ -9,7 +9,6 @@ import java.util.Random;
 
 public class Ai_rand_mode implements AiStrategy {
     static Random rad = new Random();
-    static Logger log = LogManager.getLogger(logtest.class);
 
 
     @Override
@@ -18,7 +17,7 @@ public class Ai_rand_mode implements AiStrategy {
         for (int i = 0; i < temp.length; i++) {
             temp[i] = rad.nextBoolean();
         }
-        log.trace("rolling"+ Arrays.toString(temp));
+        MyLogger.log.trace("rolling"+ Arrays.toString(temp));
         p.re_roll(temp);
 
     }

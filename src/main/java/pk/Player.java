@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 public class Player {
     private final String name;
-    static Logger log = LogManager.getLogger(logtest.class);
+
 
 
     Dice[] dice_bag = new Dice[8];
@@ -36,7 +36,7 @@ public class Player {
 
         }
 //       str= str.concat("---------------------");
-        log.trace(str);
+        MyLogger.log.trace(str);
     }
 
     public void Init_round() throws Exception {
@@ -57,14 +57,14 @@ public class Player {
             if (d.face == Faces.DIAMOND || d.face == Faces.GOLD)
                 this.score += 100;
         }
-        log.trace("Player " + name + " has the score " + score);
+        MyLogger.log.trace("Player " + name + " has the score " + score);
     }
 
     public void end_turn_check() throws Exception {
         print_dice_bag();
         int count = 0;
         if (score >= 6000) {
-            log.trace("player" + name + " get the 6000 with score " + score);
+            MyLogger.log.trace("player" + name + " get the 6000 with score " + score);
 
             return;
         }
@@ -76,7 +76,7 @@ public class Player {
         }
         System.out.println("count="+count);
         if (count >= 3) {
-            log.trace("------------------End The Term-------------------");
+            MyLogger.log.trace("------------------End The Term-------------------");
             score_cal();
         } else {
             turn_act();
@@ -98,7 +98,7 @@ public class Player {
 
             end_turn_check();
         } else {
-            log.warn("not success reroll at least 2 valid,doing again");
+            MyLogger.log.warn("not success reroll at least 2 valid,doing again");
 //            System.out.println("not success reroll at least 2 valid,doing again");
 
             end_turn_check();

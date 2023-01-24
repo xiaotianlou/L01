@@ -1,16 +1,43 @@
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pk.AiStrategy;
 import pk.Ai_player;
 import pk.Ai_rand_mode;
+import pk.MyLogger;
 
 public class PiratenKarpen {
 
 static Logger log = LogManager.getLogger(PiratenKarpen.class);
     public static void main(String[] args) throws Exception {
+//        MyLogger.changeLoggerLevel("trace");
+        if(args.length!=0){
+                switch (args[0]){
+                    case "debug":
+                        MyLogger.changeLoggerLevel("debug");
+                        break;
+                    case "info":
+                        MyLogger.changeLoggerLevel("info");
+                        break;
+                    case "warn":
+                        MyLogger.changeLoggerLevel("warn");
+                        break;
+                    case "error":
+                        MyLogger.changeLoggerLevel("error");
+                        break;
+                    case"fatal":
+                        MyLogger.changeLoggerLevel("fatal");
+                    case"trace":
+                        MyLogger.changeLoggerLevel("trace");
+                    default:
+                        break;
+                }
+
+
+        }
 
         System.out.println("Welcome to Piraten Karpen Simulator!");
-        int total = 1000000;
+        int total = 42;
         double p1w = 0;
         double p2w = 0;
 
