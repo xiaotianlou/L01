@@ -58,6 +58,11 @@ public class Player {
         for (Dice d : dice_bag) {
             store_temp.put(d.face, store_temp.get(d.face) + 1);
         }
+        if(store_temp.get(Faces.SKULL)>=3){
+            MyLogger.log.info("Player " + name + " get " + 0 + " in this term");
+            MyLogger.log.info("Player " + name + " has the score " + score);
+            return;
+        }
 
         store_temp.entrySet().stream().forEach((entry) -> {//combine mark
             int value = entry.getValue();
@@ -68,19 +73,18 @@ public class Player {
             }
         });
         score_change.addAndGet((store_temp.get(Faces.DIAMOND) + store_temp.get(Faces.GOLD)) * 100);//gold and dimond add
-        if(store_temp.get(Faces.SKULL)==0){
-            store_temp.forEach((key,value)->{
-                if(key!=Faces.GOLD&&key!=Faces.DIAMOND&&value>0&value<3){
+        if (store_temp.get(Faces.SKULL) == 0) {
+            store_temp.forEach((key, value) -> {
+                if (key != Faces.GOLD && key != Faces.DIAMOND && value > 0 & value < 3) {
                     Full_chest_counter.set(false);
                 }
             });
-        }else {
+        } else {
             Full_chest_counter.set(false);
         }
-        if(Full_chest_counter.get()){
+        if (Full_chest_counter.get()) {
             score_change.addAndGet(500);
         }
-
 
 
         this.score += score_change.get();
