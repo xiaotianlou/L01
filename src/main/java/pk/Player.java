@@ -1,7 +1,14 @@
 package pk;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Player {
     private final String name;
+    static Logger log = LogManager.getLogger(logtest.class);
+
+
     Dice[] dice_bag = new Dice[8];
     private int score;
 
@@ -37,7 +44,6 @@ public class Player {
     public void restart() {
         score = 0;
     }
-
     public void turn_act() throws Exception {
         System.out.println("player inter");
     }
@@ -47,14 +53,16 @@ public class Player {
             if (d.face == Faces.DIAMOND || d.face == Faces.GOLD)
                 this.score += 100;
         }
-        System.out.println("Player " + name + " has the score " + score);
+        log.trace("Player " + name + " has the score " + score);
+//        System.out.println("Player " + name + " has the score " + score);
     }
 
     public void end_turn_check() throws Exception {
-//        print_dice_bag();
+        print_dice_bag();
         int count = 0;
         if (score >= 6000) {
-            System.out.println("player" + name + " get the 6000 with score " + score);
+            log.trace("player" + name + " get the 6000 with score " + score);
+//            System.out.println("player" + name + " get the 6000 with score " + score);
             return;
         }
 
@@ -63,7 +71,7 @@ public class Player {
                 count++;
             }
         }
-//        System.out.println("count="+count);
+        System.out.println("count="+count);
         if (count >= 3) {
             System.out.println("------------------end the term-------------------");
             score_cal();
@@ -86,6 +94,7 @@ public class Player {
 
             end_turn_check();
         } else {
+            log.warn("not success reroll at least 2 valid,doing again");
 //            System.out.println("not success reroll at least 2 valid,doing again");
 
             end_turn_check();

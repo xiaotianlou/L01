@@ -11,8 +11,10 @@ public class PiratenKarpen {
         int total = 42;
         double p1w = 0;
         double p2w = 0;
+
         AiStrategy ai1 = new Ai_rand_mode();
         AiStrategy ai2 = new Ai_rand_mode();
+
         Ai_player p1 = new Ai_player("p1", ai1);
         Ai_player p2 = new Ai_player("p2", ai2);
 
@@ -20,6 +22,7 @@ public class PiratenKarpen {
             while (true) {
                 p1.Init_round();
                 p2.Init_round();
+
                 if (p1.getScore() >= 6000) {
                     if (p1.getScore() == p2.getScore()) {
                         System.out.println("thay are same win");

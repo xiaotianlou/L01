@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SS} %-6level [%t] (%F:%L) - %msg%n"></PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="console"></AppenderRef>
+        </Root>
+    </Loggers>
+</Configuration>
+
+
+<!--        <?xml version="1.0" encoding="UTF-8"?>-->
+<!--        &lt;!&ndash; 对配置状态进行关闭，不把打印的细节在控制台中输出 &ndash;&gt;-->
+<!--        &lt;!&ndash; 该配置状态分为8个级别：高->低：OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、ALL &ndash;&gt;-->
+<!--<Configuration status="OFF">-->
+
+<!--<Appenders>-->
+<!--    &lt;!&ndash; 在控制台打印日志 &ndash;&gt;-->
+<!--    <Console name="Console" target="SYSTEM_OUT">-->
+<!--        <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %-6level [%t] (%F:%L) - %msg%n"/>-->
+<!--    </Console>-->
+
+<!--    &lt;!&ndash; 日志输出分为6个级别：高->低：FATAL、ERROR、WARN、INFO、DEBUG、TRACE &ndash;&gt;-->
+<!--    &lt;!&ndash; Debug调试级别 &ndash;&gt;-->
+<!--    &lt;!&ndash; 这里根据你的个人习惯来写就好了，不细分的话写一个File就好了 &ndash;&gt;-->
+<!--    &lt;!&ndash; 输出日志文件,位置自动保存在项目根目录下的logs文件夹中 &ndash;&gt;-->
+<!--    <File name="MyDebugFile" fileName="logs/debug.log">-->
+<!--        &lt;!&ndash; 我这么写是为了把不同级别的日志筛选开来，便于查看 &ndash;&gt;-->
+<!--        &lt;!&ndash; Filter过滤器，以此设置日志级别，进行不同程度的日志区分，如果不这样细分，可把Filter去掉 &ndash;&gt;-->
+<!--        &lt;!&ndash; 比如这样设置：<ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>  &ndash;&gt;-->
+<!--        <Filters>-->
+<!--            &lt;!&ndash; 第一步 onMatch="DENY"：匹配到info及更高级别就DENY过滤掉，其他的NEUTRAL保留 &ndash;&gt;-->
+<!--            <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>-->
+<!--            &lt;!&ndash; 第二步 onMatch="ACCEPT"：匹配到debug及更高级别就ACCEPT保留，其他的DENY过滤掉 &ndash;&gt;-->
+<!--            &lt;!&ndash; 经过两步过滤，把debug以上的和以下的级别全部过滤，最终剩下debug级别 &ndash;&gt;-->
+<!--            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>-->
+<!--        </Filters>-->
+<!--        &lt;!&ndash; 对打印语句的格式进行设置，这个太多放在后面讲 &ndash;&gt;-->
+<!--        <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %-6level [%t] (%F:%L) - %msg%n"/>-->
+<!--    </File>-->
+
+<!--    &lt;!&ndash; Info信息级别 &ndash;&gt;-->
+<!--    <File name="MyInfoFile" fileName="logs/info.log">-->
+<!--        <Filters>-->
+<!--            <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>-->
+<!--            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>-->
+<!--        </Filters>-->
+<!--        <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %-6level [%t] (%F:%L) - %msg%n"/>-->
+<!--    </File>-->
+
+<!--    &lt;!&ndash; Warn警告级别 &ndash;&gt;-->
+<!--    <File name="MyWarnFile" fileName="logs/warn.log">-->
+<!--        <Filters>-->
+<!--            <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>-->
+<!--            <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>-->
+<!--        </Filters>-->
+<!--        <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %-6level [%t] (%F:%L) - %msg%n"/>-->
+<!--    </File>-->
+
+<!--    &lt;!&ndash; Error错误级别 &ndash;&gt;-->
+<!--    <File name="MyErrorFile" fileName="logs/error.log">-->
+<!--        <Filters>-->
+<!--            <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>-->
+<!--            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>-->
+<!--        </Filters>-->
+<!--        <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %-6level [%t] (%F:%L) - %msg%n"/>-->
+<!--    </File>-->
+
+<!--    &lt;!&ndash; Fatal严重错误级别 &ndash;&gt;-->
+<!--    <File name="MyFatalFile" fileName="logs/fatal.log">-->
+<!--        <ThresholdFilter level="fatal" onMatch="ACCEPT" onMismatch="DENY"/>-->
+<!--        <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} %-6level [%t] (%F:%L) - %msg%n"/>-->
+<!--    </File>-->
+<!--</Appenders>-->
+
+<!--&lt;!&ndash; 定义Loggers，只有定义了Loggers并引入刚才的appender配置，配置才会生效 &ndash;&gt;-->
+<!--<Loggers>-->
+<!--    <Root level="trace">-->
+<!--        &lt;!&ndash; Only events at DIAG level or more specific are sent to the console. &ndash;&gt;-->
+<!--        <AppenderRef ref="Console"/>-->
+<!--        <AppenderRef ref="MyDebugFile"/>-->
+<!--        <AppenderRef ref="MyInfoFile"/>-->
+<!--        <AppenderRef ref="MyWarnFile"/>-->
+<!--        <AppenderRef ref="MyErrorFile"/>-->
+<!--        <AppenderRef ref="MyFatalFile"/>-->
+<!--    </Root>-->
+<!--</Loggers>-->
+<!--</Configuration>-->
