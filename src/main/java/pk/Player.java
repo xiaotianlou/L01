@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Player {
-    static HashMap<Faces, Integer> store_temp = new HashMap<>();
+    HashMap<Faces, Integer> store_temp = new HashMap<>();
     private final String name;
     Dice[] dice_bag = new Dice[8];
     private int score;
@@ -52,7 +52,7 @@ public class Player {
         System.out.println("player inter");
     }
 
-    public void score_cal() {
+    public int score_cal() {
         AtomicInteger score_change = new AtomicInteger();
         AtomicBoolean Full_chest_counter = new AtomicBoolean(true);
         for (Faces f : Faces.values()) {
@@ -64,7 +64,7 @@ public class Player {
         if(store_temp.get(Faces.SKULL)>=3){
             MyLogger.log.info("Player " + name + " get " + 0 + " in this term");
             MyLogger.log.info("Player " + name + " has the score " + score);
-            return;
+            return this.getScore();
         }
 
         store_temp.entrySet().stream().forEach((entry) -> {//combine mark
@@ -93,6 +93,7 @@ public class Player {
         this.score += score_change.get();
         MyLogger.log.info("Player " + name + " get " + score_change.get() + " in this term");
         MyLogger.log.info("Player " + name + " has the score " + score);
+        return this.getScore();
     }
     public void soft_bag(){
         Arrays.sort(dice_bag, new Comparator<Dice>() {

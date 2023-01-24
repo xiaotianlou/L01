@@ -20,5 +20,6 @@ public class Ai_rand_mode implements AiStrategy {
         MyLogger.log.trace("rolling"+ Arrays.toString(temp));
         p.re_roll(temp);
 
+
     }
 }
