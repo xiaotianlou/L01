@@ -1,9 +1,6 @@
 package pk;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 public class Player {
     private final String name;
 
@@ -57,14 +54,14 @@ public class Player {
             if (d.face == Faces.DIAMOND || d.face == Faces.GOLD)
                 this.score += 100;
         }
-        MyLogger.log.trace("Player " + name + " has the score " + score);
+        MyLogger.log.info("Player " + name + " has the score " + score);
     }
 
     public void end_turn_check() throws Exception {
         print_dice_bag();
         int count = 0;
         if (score >= 6000) {
-            MyLogger.log.trace("player" + name + " get the 6000 with score " + score);
+            MyLogger.log.info("player" + name + " get the 6000 with score " + score);
 
             return;
         }
@@ -76,7 +73,7 @@ public class Player {
         }
         MyLogger.log.trace("skull count="+count);
         if (count >= 3) {
-            MyLogger.log.trace("------------------End The Term-------------------");
+            MyLogger.log.info("------------------End The "+this.name+" Term-------------------");
             score_cal();
         } else {
             turn_act();
