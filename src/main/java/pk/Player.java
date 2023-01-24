@@ -74,7 +74,7 @@ public class Player {
                 count++;
             }
         }
-        System.out.println("count="+count);
+        MyLogger.log.trace("skull count="+count);
         if (count >= 3) {
             MyLogger.log.trace("------------------End The Term-------------------");
             score_cal();
