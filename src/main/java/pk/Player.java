@@ -2,9 +2,11 @@ package pk;
 
 
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Player {
+    static HashMap<Faces, Integer> store_temp = new HashMap<>();
     private final String name;
     Dice[] dice_bag = new Dice[8];
     private int score;
@@ -46,32 +48,43 @@ public class Player {
     public void turn_act() throws Exception {
         System.out.println("player inter");
     }
-    static HashMap<Faces,Integer> store_temp = new HashMap<>();
+
     public void score_cal() {
         AtomicInteger score_change = new AtomicInteger();
-        int Full_chest_counter=0;
-        for (Faces f: Faces.values()){
-            store_temp.put(f,0);
+        AtomicBoolean Full_chest_counter = new AtomicBoolean(true);
+        for (Faces f : Faces.values()) {
+            store_temp.put(f, 0);
         }
         for (Dice d : dice_bag) {
-            store_temp.put(d.face,store_temp.get(d.face)+1);
+            store_temp.put(d.face, store_temp.get(d.face) + 1);
         }
 
-        store_temp.entrySet().stream().forEach((entry)->{//combine mark
-            int value= entry.getValue();
-           if(value>=5){
-               score_change.addAndGet((int) (500*Math.pow(2,value-5)));
-           }else if(value>=3){
-               score_change.addAndGet(100*(value-2));
-           }
+        store_temp.entrySet().stream().forEach((entry) -> {//combine mark
+            int value = entry.getValue();
+            if (value >= 5) {
+                score_change.addAndGet((int) (500 * Math.pow(2, value - 5)));
+            } else if (value >= 3) {
+                score_change.addAndGet(100 * (value - 2));
+            }
         });
+        score_change.addAndGet((store_temp.get(Faces.DIAMOND) + store_temp.get(Faces.GOLD)) * 100);//gold and dimond add
+        if(store_temp.get(Faces.SKULL)==0){
+            store_temp.forEach((key,value)->{
+                if(key!=Faces.GOLD&&key!=Faces.DIAMOND&&value>0&value<3){
+                    Full_chest_counter.set(false);
+                }
+            });
+        }else {
+            Full_chest_counter.set(false);
+        }
+        if(Full_chest_counter.get()){
+            score_change.addAndGet(500);
+        }
 
 
 
-
-
-        this.score+=score_change.get();
-        MyLogger.log.info("Player "+name+" get "+score_change.get()+" in this term");
+        this.score += score_change.get();
+        MyLogger.log.info("Player " + name + " get " + score_change.get() + " in this term");
         MyLogger.log.info("Player " + name + " has the score " + score);
     }
 
