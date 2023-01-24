@@ -11,10 +11,10 @@
     * `mvn compile`
   * To run the project in development mode:
     * `mvn -q exec:java -Dexec.args="1"` (here, `-q` tells maven to be _quiet_)
-    * `mvn -q exec:java -Dexec.args="trace"`(start at trace mode)
-    * `mvn -q exec:java -Dexec.args="debug"`(start at debug mode)
-    * `mvn -q exec:java -Dexec.args="error"`(start at error mode)
-    * `mvn -q exec:java -Dexec.args="info"`(start at info mode)
+    * `mvn -q exec:java -Dexec.args="trace"`(start at **trace** mode)
+    * `mvn -q exec:java -Dexec.args="debug"`(start at **debug** mode)
+    * `mvn -q exec:java -Dexec.args="error"`(start at **error** mode)
+    * `mvn -q exec:java -Dexec.args="info"`(start at **info** mode)
   * To package the project as a turn-key artefact:
     * `mvn package`
   * To run the packaged delivery:
