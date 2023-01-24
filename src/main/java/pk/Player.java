@@ -1,11 +1,10 @@
 package pk;
 
 
+import java.util.HashMap;
+
 public class Player {
     private final String name;
-
-
-
     Dice[] dice_bag = new Dice[8];
     private int score;
 
@@ -14,7 +13,6 @@ public class Player {
         this.score = 0;
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
-
         }
     }
 
@@ -27,10 +25,9 @@ public class Player {
     }
 
     public void print_dice_bag() {
-        String str="player " + name + " have dice: ";
+        String str = "player " + name + " have dice: ";
         for (Dice i : dice_bag) {
-           str= str.concat(i.face + " ");
-
+            str = str.concat(i.face + " ");
         }
 //       str= str.concat("---------------------");
         MyLogger.log.trace(str);
@@ -39,21 +36,28 @@ public class Player {
     public void Init_round() throws Exception {
         //can move to cons
         end_turn_check();
-
     }
 
     public void restart() {
         score = 0;
     }
+
     public void turn_act() throws Exception {
         System.out.println("player inter");
     }
-
+    static HashMap<Faces,Integer> store_temp = new HashMap<>();
     public void score_cal() {
-        for (Dice d : dice_bag) {
-            if (d.face == Faces.DIAMOND || d.face == Faces.GOLD)
-                this.score += 100;
+        int score_change = 0;
+        for (Faces f: Faces.values()){
+            store_temp.put(f,0);
         }
+        for (Dice d : dice_bag) {
+            store_temp.put(d.face,store_temp.get(d.face)+1);
+        }
+
+
+        this.score += score_change;
+        MyLogger.log.info("Player "+name+" get "+score_change+" in this term");
         MyLogger.log.info("Player " + name + " has the score " + score);
     }
 
@@ -71,9 +75,9 @@ public class Player {
                 count++;
             }
         }
-        MyLogger.log.trace("skull count="+count);
+        MyLogger.log.trace("skull count=" + count);
         if (count >= 3) {
-            MyLogger.log.info("------------------End The "+this.name+" Term-------------------");
+            MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
             score_cal();
         } else {
             turn_act();
