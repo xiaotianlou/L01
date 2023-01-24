@@ -51,16 +51,18 @@ public class Player {
     public void turn_act() throws Exception {
         System.out.println("player inter");
     }
-
-    public int score_cal() {
-        AtomicInteger score_change = new AtomicInteger();
-        AtomicBoolean Full_chest_counter = new AtomicBoolean(true);
+    public void refresh_map(){
         for (Faces f : Faces.values()) {
             store_temp.put(f, 0);
         }
         for (Dice d : dice_bag) {
             store_temp.put(d.face, store_temp.get(d.face) + 1);
         }
+    }
+    public int score_cal() {
+        AtomicInteger score_change = new AtomicInteger();
+        AtomicBoolean Full_chest_counter = new AtomicBoolean(true);
+        refresh_map();
         if(store_temp.get(Faces.SKULL)>=3){
             MyLogger.log.info("Player " + name + " get " + 0 + " in this term");
             MyLogger.log.info("Player " + name + " has the score " + score);
@@ -109,10 +111,8 @@ public class Player {
         int count = 0;
         if (score >= 6000) {
             MyLogger.log.info("player" + name + " get the 6000 with score " + score);
-
             return;
         }
-
         for (Dice d : dice_bag) {
             if (d.face == Faces.SKULL) {
                 count++;
@@ -126,6 +126,10 @@ public class Player {
             turn_act();
         }
     }
+    public void end_turn(){
+        MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
+        score_cal();
+    }
 
     public void re_roll(boolean[] index) throws Exception {
         int valid_count = 0;
@@ -134,7 +138,6 @@ public class Player {
         }
         if (valid_count >= 2) {
             for (int i = 0; i < 8; i++) {
-
                 if (index[i]) {
                     dice_bag[i].roll();
                 }
