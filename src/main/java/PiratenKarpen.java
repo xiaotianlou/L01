@@ -92,4 +92,3 @@ public class PiratenKarpen {
 //            System.out.println();
 //        }
     }
-}
