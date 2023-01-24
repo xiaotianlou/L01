@@ -1,6 +1,8 @@
 package pk;
 
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -28,6 +30,7 @@ public class Player {
     }
 
     public void print_dice_bag() {
+        soft_bag();
         String str = "player " + name + " have dice: ";
         for (Dice i : dice_bag) {
             str = str.concat(i.face + " ");
@@ -90,6 +93,14 @@ public class Player {
         this.score += score_change.get();
         MyLogger.log.info("Player " + name + " get " + score_change.get() + " in this term");
         MyLogger.log.info("Player " + name + " has the score " + score);
+    }
+    public void soft_bag(){
+        Arrays.sort(dice_bag, new Comparator<Dice>() {
+            @Override
+            public int compare(Dice o1, Dice o2) {
+                return o1.face.compareTo(o2.face);
+            }
+        });
     }
 
     public void end_turn_check() throws Exception {
