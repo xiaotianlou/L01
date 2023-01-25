@@ -3,29 +3,48 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pk.*;
 
-import java.util.Scanner;
-
 public class PiratenKarpen {
+    public static void startMode(String[] args) {
+        if (args.length != 0) {
+            switch (args[0]) {
+                case "debug":
+                    MyLogger.changeLoggerLevel("debug");
+                    break;
+                case "info":
+                    MyLogger.changeLoggerLevel("info");
+                    break;
+                case "warn":
+                    MyLogger.changeLoggerLevel("warn");
+                    break;
+                case "error":
+                    MyLogger.changeLoggerLevel("error");
+                    break;
+                case "fatal":
+                    MyLogger.changeLoggerLevel("fatal");
+                case "trace":
+                    MyLogger.changeLoggerLevel("trace");
+                default:
+                    break;
+            }
 
+
+        }
+
+    }
+
+    static Logger log = LogManager.getLogger(PiratenKarpen.class);
 
     public static void main(String[] args) throws Exception {
-//        MyLogger.log.fatal("please enter the log type you want:(debug,info,warn,error,fatal,trace)");
-//        Scanner s = new Scanner(System.in);
-//        MyLogger.changeLoggerLevel(s.nextLine());
+//        MyLogger.changeLoggerLevel("trace");
+        startMode(args);
         System.out.println("Welcome to Piraten Karpen Simulator!");
         int total = 54;
         double p1w = 0;
         double p2w = 0;
 
-        AiStrategy ai1= new Ai_rand_mode();
-        AiStrategy ai2= new Ai_rand_mode();
-        System.out.println(args.length+"sdgfhgjklkgfdsdsghjklkgfxgbhjk");
-        if(args.length!=0){;
-            if(args[0].equals("random")){ai1 = new Ai_rand_mode();}
-            if(args[0].equals("combo")){ ai1 = new Ai_comb_mode();}
-            if(args[1].equals("random")){ai2 = new Ai_rand_mode();}
-            if(args[1].equals("combo")){ ai2 = new Ai_comb_mode();}
-        }
+        AiStrategy ai1 = new Ai_rand_mode();
+        AiStrategy ai2 = new Ai_comb_mode();
+
         Ai_player p1 = new Ai_player("p1", ai1);
         Ai_player p2 = new Ai_player("p2", ai2);
 //        System.out.println("tresgrdhtygfcbvxdgfhjmbvngcbfxcgnvmhvnbvc");
@@ -38,7 +57,7 @@ public class PiratenKarpen {
 
         while (true){
             p1.Init_round();
-            Thread.sleep(30);
+            Thread.sleep(20);
             p2.Init_round();
                 if (p1.getScore() >= 6000||p2.getScore()>=6000) {
                     if (p1.getScore() == p2.getScore()) {
@@ -64,9 +83,9 @@ public class PiratenKarpen {
                 }}
 
         }
-        MyLogger.log.debug("p1:" + p1w / total);
-        MyLogger.log.debug("p2:" + p2w / total);
-        MyLogger.log.debug("+" + (p1w / total + p2w / total));
+        log.debug("p1:" + p1w / total);
+        log.debug("p2:" + p2w / total);
+        log.debug("+" + (p1w / total + p2w / total));
     }
 
 
