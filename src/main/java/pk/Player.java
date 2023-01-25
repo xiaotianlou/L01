@@ -20,7 +20,7 @@ public class Player {
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
         }
-        this.card = new Card();
+//        this.card = new Card();
 
     }
 
@@ -42,12 +42,16 @@ public class Player {
         MyLogger.log.trace(str);
     }
 
-    public void Init_round() throws Exception {
+    public void Init_round(CardName card) throws Exception {
         //can move to cons
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
         }
-//        this.card=
+        switch (card){
+            case Sea_Battle -> this.card = new SeaBattle();
+        }
+
+//        this.card=;
         card.end_turn_check(this);
 
 //

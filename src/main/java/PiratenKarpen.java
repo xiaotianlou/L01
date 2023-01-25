@@ -20,7 +20,6 @@ public class PiratenKarpen {
         return card_bag.pop();
     }
 
-
     public static void main(String[] args) throws Exception {
 
 
