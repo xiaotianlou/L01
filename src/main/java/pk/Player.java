@@ -8,10 +8,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Player {
-    HashMap<Faces, Integer> store_temp = new HashMap<>();
     private final String name;
+    HashMap<Faces, Integer> store_temp = new HashMap<>();
     Dice[] dice_bag = new Dice[8];
-    private int score=0;
+    private int score = 0;
 
     public Player(String name) {
         this.name = name;
@@ -54,7 +54,8 @@ public class Player {
     public void turn_act() throws Exception {
         System.out.println("player inter");
     }
-    public void refresh_map(){
+
+    public void refresh_map() {
         for (Faces f : Faces.values()) {
             store_temp.put(f, 0);
         }
@@ -62,11 +63,12 @@ public class Player {
             store_temp.put(d.face, store_temp.get(d.face) + 1);
         }
     }
+
     public int score_cal() {
         AtomicInteger score_change = new AtomicInteger(0);
         AtomicBoolean Full_chest_counter = new AtomicBoolean(true);
         refresh_map();
-        if(store_temp.get(Faces.SKULL)>=3){
+        if (store_temp.get(Faces.SKULL) >= 3) {
             MyLogger.log.info("Player " + name + " get " + 0 + " in this term");
             MyLogger.log.info("Player " + name + " has the score " + score);
             return this.getScore();
@@ -100,7 +102,8 @@ public class Player {
         MyLogger.log.info("Player " + name + " has the score " + score);
         return this.getScore();
     }
-    public void soft_bag(){
+
+    public void soft_bag() {
         Arrays.sort(dice_bag, new Comparator<Dice>() {
             @Override
             public int compare(Dice o1, Dice o2) {
@@ -113,7 +116,7 @@ public class Player {
         print_dice_bag();
         int count = 0;
         if (score >= 6000) {
-            MyLogger.log.info("player" + name + " get the "+score+" with score " + score);
+            MyLogger.log.info("player" + name + " get the " + score + " with score " + score);
             return;
         }
         for (Dice d : dice_bag) {
@@ -123,12 +126,13 @@ public class Player {
         }
         MyLogger.log.trace("skull count=" + count);
         if (count >= 3) {
-           end_turn();
+            end_turn();
         } else {
             turn_act();
         }
     }
-    public void end_turn(){
+
+    public void end_turn() {
         MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
         score_cal();
     }
@@ -144,12 +148,10 @@ public class Player {
                     dice_bag[i].roll();
                 }
             }
-
             end_turn_check();
         } else {
             MyLogger.log.warn("not success reroll at least 2 valid,doing again");
 //            System.out.println("not success reroll at least 2 valid,doing again");
-
             this.turn_act();
         }
 
