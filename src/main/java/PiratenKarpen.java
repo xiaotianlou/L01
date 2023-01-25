@@ -3,10 +3,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pk.*;
 
+import java.util.Scanner;
+
 public class PiratenKarpen {
-    public static void startMode(String[] args) {
-        if (args.length != 0) {
-            switch (args[0]) {
+    public static void startMode(String args) {
+            switch (args) {
                 case "debug":
                     MyLogger.changeLoggerLevel("debug");
                     break;
@@ -25,7 +26,7 @@ public class PiratenKarpen {
                     MyLogger.changeLoggerLevel("trace");
                 default:
                     break;
-            }
+
 
 
         }
@@ -35,8 +36,10 @@ public class PiratenKarpen {
     static Logger log = LogManager.getLogger(PiratenKarpen.class);
 
     public static void main(String[] args) throws Exception {
-//        MyLogger.changeLoggerLevel("trace");
-        startMode(args);
+        MyLogger.changeLoggerLevel("trace");
+        MyLogger.log.fatal("please enter the log type you want:(debug,info,warn,error,fatal,trace)");
+        Scanner s = new Scanner(System.in);
+        startMode(s.nextLine());
         System.out.println("Welcome to Piraten Karpen Simulator!");
         int total = 54;
         double p1w = 0;
