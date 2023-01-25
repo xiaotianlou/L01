@@ -12,6 +12,7 @@ public class Player {
     HashMap<Faces, Integer> store_temp = new HashMap<>();
     Dice[] dice_bag = new Dice[8];
     private int score = 0;
+    Card card;
 
     public Player(String name) {
         this.name = name;
@@ -19,6 +20,8 @@ public class Player {
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
         }
+        this.card = new Card();
+
     }
 
     public int getScore() {
@@ -44,7 +47,13 @@ public class Player {
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
         }
-        end_turn_check();
+//        this.card=
+        card.end_turn_check(this);
+
+//
+///////////////////////////////////////////////
+
+//        end_turn_check();
     }
 
     public void restart() {
@@ -148,7 +157,8 @@ public class Player {
                     dice_bag[i].roll();
                 }
             }
-            end_turn_check();
+            card.end_turn_check(this);
+//            end_turn_check();
         } else {
             MyLogger.log.warn("not success reroll at least 2 valid,doing again");
 //            System.out.println("not success reroll at least 2 valid,doing again");

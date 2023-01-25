@@ -1,18 +1,28 @@
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import pk.*;
 
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 
 public class PiratenKarpen {
+    static LinkedList<CardName> card_bag = new LinkedList<>();
 
-    static Logger log = LogManager.getLogger(PiratenKarpen.class);
-
+    static {
+        for (int i = 0; i < 35; i++) {
+            if (i <= 5) {
+                card_bag.add(CardName.Sea_Battle);
+            } else {
+                card_bag.add(CardName.nop);
+            }
+        }
+        Collections.shuffle(card_bag);
+    }
+    public CardName get_card() {
+        return card_bag.pop();
+    }
     public static void main(String[] args) throws Exception {
 
 
-//        MyLogger.changeLoggerLevel("trace");
+        MyLogger.changeLoggerLevel("error");
         System.out.println("Welcome to Piraten Karpen Simulator1!");
         int total = 52;
         double p1w = 0;
@@ -20,11 +30,11 @@ public class PiratenKarpen {
         System.out.println(args[0]);
         AiStrategy ai1 = new Ai_rand_mode();
         AiStrategy ai2 = new Ai_rand_mode();
-        if(args[0].equals("random combo")){
-            ai1=  new Ai_rand_mode();
+        if (args[0].equals("random combo")) {
+            ai1 = new Ai_rand_mode();
             ai2 = new Ai_comb_mode();
         } else if (args[0].equals("combo combo")) {
-            ai1=  new Ai_comb_mode();
+            ai1 = new Ai_comb_mode();
             ai2 = new Ai_comb_mode();
         }
 
@@ -38,11 +48,11 @@ public class PiratenKarpen {
 
         for (int i = 0; i < total; i++) {
 
-        while (true){
-            p1.Init_round();
-            Thread.sleep(0);
-            p2.Init_round();
-                if (p1.getScore() >= 6000||p2.getScore()>=6000) {
+            while (true) {
+                p1.Init_round();
+                Thread.sleep(0);
+                p2.Init_round();
+                if (p1.getScore() >= 6000 || p2.getScore() >= 6000) {
                     if (p1.getScore() == p2.getScore()) {
                         System.out.println("thay are same win");
                         p1.restart();
@@ -63,16 +73,22 @@ public class PiratenKarpen {
                             break;
                         }
                     }
-                }}
+                }
+            }
 
         }
-        log.debug("p1:" + p1w / total);
-        log.debug("p2:" + p2w / total);
-        log.debug("+" + (p1w / total + p2w / total));
+        MyLogger.log.debug("p1:" + p1w / total);
+        MyLogger.log.debug("p2:" + p2w / total);
+        MyLogger.log.debug("+" + (p1w / total + p2w / total));
     }
 
 
-        //draft: skull lock,three skull stop with 0 except in island of skull
+//    static Logger log = LogManager.getLogger(PiratenKarpen.class);
+
+
+
+
+    //draft: skull lock,three skull stop with 0 except in island of skull
 //        for (int i = 0; i < 1000; i++) {
 //
 //
@@ -81,4 +97,4 @@ public class PiratenKarpen {
 //            p.score_cal();
 //            System.out.println();
 //        }
-    }
+}
