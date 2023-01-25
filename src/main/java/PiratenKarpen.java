@@ -38,7 +38,7 @@ public class PiratenKarpen {
 //        MyLogger.changeLoggerLevel("trace");
         startMode(args);
         System.out.println("Welcome to Piraten Karpen Simulator!");
-        int total = 1;
+        int total = 54;
         double p1w = 0;
         double p2w = 0;
 
@@ -57,7 +57,7 @@ public class PiratenKarpen {
 
         while (true){
             p1.Init_round();
-            Thread.sleep(10);
+            Thread.sleep(20);
             p2.Init_round();
                 if (p1.getScore() >= 6000||p2.getScore()>=6000) {
                     if (p1.getScore() == p2.getScore()) {
