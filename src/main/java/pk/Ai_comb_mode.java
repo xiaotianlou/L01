@@ -14,8 +14,11 @@ public class Ai_comb_mode implements AiStrategy {
         p.refresh_map();
         HashMap<Faces, Integer> record = p.store_temp;
         int Score = p.getScore();
+        int counter=0;
         if (record.get(Faces.SKULL) == 2) {
+            MyLogger.log.trace("ending term by player" + p.getName());
             p.end_turn();
+            return;
         } else {
             for (Faces f : Faces.values()) {
                 if (record.get(f) < 3 && f != Faces.SKULL) {
@@ -27,8 +30,17 @@ public class Ai_comb_mode implements AiStrategy {
                 }
             }
 
-            MyLogger.log.trace("rolling" + Arrays.toString(rolling_number));
-            p.re_roll(rolling_number);
+            for (Boolean b:rolling_number){
+                if(b)counter++;
+            }
+            if(counter<=1){
+                MyLogger.log.trace("ending term by player" + p.getName());
+                p.end_turn();
+                return;
+            }
         }
+//        System.out.println("counter="+counter);
+        MyLogger.log.trace("rolling" + Arrays.toString(rolling_number));
+        p.re_roll(rolling_number);
     }
 }

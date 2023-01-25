@@ -11,7 +11,7 @@ public class Player {
     HashMap<Faces, Integer> store_temp = new HashMap<>();
     private final String name;
     Dice[] dice_bag = new Dice[8];
-    private int score;
+    private int score=0;
 
     public Player(String name) {
         this.name = name;
@@ -60,7 +60,7 @@ public class Player {
         }
     }
     public int score_cal() {
-        AtomicInteger score_change = new AtomicInteger();
+        AtomicInteger score_change = new AtomicInteger(0);
         AtomicBoolean Full_chest_counter = new AtomicBoolean(true);
         refresh_map();
         if(store_temp.get(Faces.SKULL)>=3){
@@ -110,7 +110,7 @@ public class Player {
         print_dice_bag();
         int count = 0;
         if (score >= 6000) {
-            MyLogger.log.info("player" + name + " get the 6000 with score " + score);
+            MyLogger.log.info("player" + name + " get the "+score+" with score " + score);
             return;
         }
         for (Dice d : dice_bag) {
@@ -120,8 +120,7 @@ public class Player {
         }
         MyLogger.log.trace("skull count=" + count);
         if (count >= 3) {
-            MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
-            score_cal();
+           end_turn();
         } else {
             turn_act();
         }
@@ -148,7 +147,7 @@ public class Player {
             MyLogger.log.warn("not success reroll at least 2 valid,doing again");
 //            System.out.println("not success reroll at least 2 valid,doing again");
 
-            end_turn_check();
+            this.turn_act();
         }
 
     }

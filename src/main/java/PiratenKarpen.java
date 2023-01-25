@@ -38,7 +38,7 @@ public class PiratenKarpen {
 //        MyLogger.changeLoggerLevel("trace");
         startMode(args);
         System.out.println("Welcome to Piraten Karpen Simulator!");
-        int total = 42;
+        int total = 1;
         double p1w = 0;
         double p2w = 0;
 
@@ -47,12 +47,19 @@ public class PiratenKarpen {
 
         Ai_player p1 = new Ai_player("p1", ai1);
         Ai_player p2 = new Ai_player("p2", ai2);
+//        System.out.println("tresgrdhtygfcbvxdgfhjmbvngcbfxcgnvmhvnbvc");
+//        System.out.println(p2.getScore());
+//        p1.Init_round();
+//        p2.Init_round();
+
 
         for (int i = 0; i < total; i++) {
-            while (true) {
-                p1.Init_round();
-                p2.Init_round();
-                if (p1.getScore() >= 6000) {
+
+        while (true){
+            p1.Init_round();
+            Thread.sleep(10);
+            p2.Init_round();
+                if (p1.getScore() >= 6000||p2.getScore()>=6000) {
                     if (p1.getScore() == p2.getScore()) {
                         System.out.println("thay are same win");
                         p1.restart();
@@ -73,8 +80,8 @@ public class PiratenKarpen {
                             break;
                         }
                     }
-                }
-            }
+                }}
+
         }
         log.debug("p1:" + p1w / total);
         log.debug("p2:" + p2w / total);
