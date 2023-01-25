@@ -19,6 +19,8 @@ public class PiratenKarpen {
     public CardName get_card() {
         return card_bag.pop();
     }
+
+
     public static void main(String[] args) throws Exception {
 
 
