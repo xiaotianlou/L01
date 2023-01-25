@@ -4,41 +4,13 @@ import org.apache.logging.log4j.Logger;
 import pk.*;
 
 public class PiratenKarpen {
-    public static void startMode(String[] args) {
-        if (args.length != 0) {
-            switch (args[0]) {
-                case "debug":
-                    MyLogger.changeLoggerLevel("debug");
-                    break;
-                case "info":
-                    MyLogger.changeLoggerLevel("info");
-                    break;
-                case "warn":
-                    MyLogger.changeLoggerLevel("warn");
-                    break;
-                case "error":
-                    MyLogger.changeLoggerLevel("error");
-                    break;
-                case "fatal":
-                    MyLogger.changeLoggerLevel("fatal");
-                case "trace":
-                    MyLogger.changeLoggerLevel("trace");
-                default:
-                    break;
-            }
-
-
-        }
-
-    }
 
     static Logger log = LogManager.getLogger(PiratenKarpen.class);
 
     public static void main(String[] args) throws Exception {
 //        MyLogger.changeLoggerLevel("trace");
-        startMode(args);
-        System.out.println("Welcome to Piraten Karpen Simulator!");
-        int total = 54;
+        System.out.println("Welcome to Piraten Karpen Simulator1!");
+        int total = 52;
         double p1w = 0;
         double p2w = 0;
 
@@ -57,7 +29,7 @@ public class PiratenKarpen {
 
         while (true){
             p1.Init_round();
-            Thread.sleep(20);
+            Thread.sleep(0);
             p2.Init_round();
                 if (p1.getScore() >= 6000||p2.getScore()>=6000) {
                     if (p1.getScore() == p2.getScore()) {
