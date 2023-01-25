@@ -57,7 +57,7 @@ public class PiratenKarpen {
 
         while (true){
             p1.Init_round();
-            Thread.sleep(20);
+//            Thread.sleep(20);
             p2.Init_round();
                 if (p1.getScore() >= 6000||p2.getScore()>=6000) {
                     if (p1.getScore() == p2.getScore()) {
