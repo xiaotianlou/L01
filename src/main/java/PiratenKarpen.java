@@ -3,19 +3,30 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pk.*;
 
+import java.util.Arrays;
+
 public class PiratenKarpen {
 
     static Logger log = LogManager.getLogger(PiratenKarpen.class);
 
     public static void main(String[] args) throws Exception {
+
+
 //        MyLogger.changeLoggerLevel("trace");
         System.out.println("Welcome to Piraten Karpen Simulator1!");
         int total = 52;
         double p1w = 0;
         double p2w = 0;
-
+        System.out.println(args[0]);
         AiStrategy ai1 = new Ai_rand_mode();
-        AiStrategy ai2 = new Ai_comb_mode();
+        AiStrategy ai2 = new Ai_rand_mode();
+        if(args[0].equals("random combo")){
+            ai1=  new Ai_rand_mode();
+            ai2 = new Ai_comb_mode();
+        } else if (args[0].equals("combo combo")) {
+            ai1=  new Ai_comb_mode();
+            ai2 = new Ai_comb_mode();
+        }
 
         Ai_player p1 = new Ai_player("p1", ai1);
         Ai_player p2 = new Ai_player("p2", ai2);

@@ -41,6 +41,9 @@ public class Player {
 
     public void Init_round() throws Exception {
         //can move to cons
+        for (int i = 0; i < dice_bag.length; i++) {
+            dice_bag[i] = new Dice();
+        }
         end_turn_check();
     }
 

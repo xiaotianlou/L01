@@ -15,6 +15,7 @@
     * `mvn -q exec:java -Dexec.args="debug"`(start at **debug** mode)
     * `mvn -q exec:java -Dexec.args="error"`(start at **error** mode)
     * `mvn -q exec:java -Dexec.args="random combo"`(start with ai slect)
+    * `mvn -q exec:java -Dexec.args="combo combo"`(start with ai slect)
   * To package the project as a turn-key artefact:
     * `mvn package`
   * To run the packaged delivery:
