@@ -2,10 +2,9 @@ package pk;
 
 public class SeaBattle extends Card{
 
-    final CardName name= CardName.Sea_Battle;
-    public void Feature(){
 
-        
+    @Override
+    public void end_turn_check(Player p) throws Exception {
 
     }
 }

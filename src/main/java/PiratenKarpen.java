@@ -4,26 +4,26 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class PiratenKarpen {
-    static LinkedList<CardName> card_bag = new LinkedList<>();
+    static LinkedList<Card> card_bag = new LinkedList<>();
 
     static {
         for (int i = 0; i < 35; i++) {
             if (i <= 5) {
-                card_bag.add(CardName.Sea_Battle);
+                card_bag.add(new SeaBattle());
             } else {
-                card_bag.add(CardName.nop);
+                card_bag.add(new NopeCard());
             }
         }
         Collections.shuffle(card_bag);
     }
-    public CardName get_card() {
+    public static Card card_draw() {
         return card_bag.pop();
     }
 
     public static void main(String[] args) throws Exception {
 
 
-        MyLogger.changeLoggerLevel("error");
+        MyLogger.changeLoggerLevel("trace");
         System.out.println("Welcome to Piraten Karpen Simulator1!");
         int total = 52;
         double p1w = 0;
@@ -50,9 +50,10 @@ public class PiratenKarpen {
         for (int i = 0; i < total; i++) {
 
             while (true) {
-                p1.Init_round();
-                Thread.sleep(0);
-                p2.Init_round();
+                p1.Init_round(card_draw());
+                p2.Init_round(card_draw());
+
+
                 if (p1.getScore() >= 6000 || p2.getScore() >= 6000) {
                     if (p1.getScore() == p2.getScore()) {
                         System.out.println("thay are same win");
