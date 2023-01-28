@@ -4,21 +4,21 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class PiratenKarpen {
-    static LinkedList<CardName> card_bag = new LinkedList<>();
+    static LinkedList<Card> card_bag = new LinkedList<>();
 
     static {
-        for (int i = 0; i < 35; i++) {
-            if (i <= 5) {
-                card_bag.add(CardName.Sea_Battle);
-            } else {
-                card_bag.add(CardName.nop);
-            }
-        }
-        Collections.shuffle(card_bag);
+//        for (int i = 0; i < 35; i++) {
+//            if (i <= 5) {
+//                card_bag.add(CardName.Sea_Battle);
+//            } else {
+//                card_bag.add(CardName.nop);
+//            }
+//        }
+//        Collections.shuffle(card_bag);
     }
-    public CardName get_card() {
-        return card_bag.pop();
-    }
+//    public CardName get_card() {
+//        return card_bag.pop();
+//    }
 
 
     public static void main(String[] args) throws Exception {
