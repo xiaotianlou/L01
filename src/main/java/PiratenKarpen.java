@@ -24,7 +24,7 @@ public class PiratenKarpen {
     public static void main(String[] args) throws Exception {
 
 
-        MyLogger.changeLoggerLevel("error");
+        MyLogger.changeLoggerLevel("trace");
         System.out.println("Welcome to Piraten Karpen Simulator1!");
         int total = 52;
         double p1w = 0;
