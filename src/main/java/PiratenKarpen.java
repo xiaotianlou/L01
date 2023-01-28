@@ -25,6 +25,7 @@ public class PiratenKarpen {
 
 
         MyLogger.changeLoggerLevel("trace");
+        System.out.println("1");
         System.out.println("Welcome to Piraten Karpen Simulator1!");
         int total = 52;
         double p1w = 0;
