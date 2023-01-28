@@ -2,6 +2,8 @@ package pk;
 
 
 public class logtest {
+
+
     public static void main(String[] args) {
         MyLogger.log.fatal("asdgfhf");
         MyLogger.log.trace("asfdghj234rt5678");
@@ -13,5 +15,8 @@ public class logtest {
         MyLogger.changeLoggerLevel("fatal");
         MyLogger.log.fatal("asdgfhf");
         MyLogger.log.trace("asfdghj234rt5678");
+
+
     }
+
 }

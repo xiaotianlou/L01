@@ -9,6 +9,7 @@ import org.apache.logging.log4j.core.config.LoggerConfig;
 
 public class MyLogger {
     public static Logger log = LogManager.getLogger(logtest.class);
+
     public static void main(String[] args) {
         if(args.length!=0){
             if(args[0]=="1"){
@@ -16,19 +17,25 @@ public class MyLogger {
 //                changeLoggerLevel("debug");
             }
         }
-//        log.error("dsafghj11");
-//        log.trace("afdsghjk");
-//        log.fatal("afsdgh");
-//        changeLoggerLevel("debug");
-//        System.out.println("\n\n");
-//        log.error("dsafghj11");
-//        log.trace("afdsghjk");
-//        log.fatal("afsdgh");
-//        System.out.println("\n\n");
-//        changeLoggerLevel("fatal");
-//        log.error("dsafghj11");
-//        log.trace("afdsghjk");
-//        log.fatal("afsdgh");
+
+        log.error("dsafghj11");
+        log.trace("afdsghjk");
+        log.fatal("afsdgh");
+
+        changeLoggerLevel("debug");
+
+        System.out.println("\n\n");
+        log.error("dsafghj11");
+        log.trace("afdsghjk");
+        log.fatal("afsdgh");
+        System.out.println("\n\n");
+
+        changeLoggerLevel("fatal");
+        log.error("dsafghj11");
+        log.trace("afdsghjk");
+        log.fatal("afsdgh");
+
+
     }
     public static void changeLoggerLevel(String level) {
         // String loggerFactoryClassStr =

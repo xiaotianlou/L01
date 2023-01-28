@@ -29,6 +29,7 @@ public class Ai_comb_mode implements AiStrategy {
                     }
                 }
             }
+
             for (Boolean b:rolling_number){
                 if(b)counter++;
             }
