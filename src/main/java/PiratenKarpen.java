@@ -19,6 +19,7 @@ public class PiratenKarpen {
                 card_bag.add(new NopeCard());
             }
         }
+
 //        for (int i = 0; i < 35; i++) {
 //            if (i <= 35) {
 //                card_bag.add(new SeaBattle());
