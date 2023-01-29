@@ -79,13 +79,6 @@ public class PiratenKarpen {
                 Card card2 = cardDraw();
                 p1.Init_round(card1);
 //                Thread.sleep(20);
-
-                if (card2.getClass().equals(SeaBattle.class)) {
-                    System.out.println("海战模式");
-                    p2.changeMode(new AiBattleMode());
-                }else{
-                    p2.changeMode(ai2);
-                }
                 p2.Init_round(card2);
 
 

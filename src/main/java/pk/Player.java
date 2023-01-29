@@ -63,6 +63,14 @@ public class Player {
             dice_bag[i] = new Dice();
         }
         this.card = card;
+        //change stra
+        //if (card.getClass().equals(SeaBattle.class)) {
+        //                    System.out.println("seabattlemode");
+        //                    p2.changeMode(new AiBattleMode());
+        //                }else{
+        //                    p2.changeMode( new AiCombMode(););
+        //                }
+
         card.end_turn_check(this);
     }
 
