@@ -48,20 +48,20 @@ public class PiratenKarpen {
         double p1w = 0;
         double p2w = 0;
 
-        AiStrategy ai1 = new Ai_rand_mode();
-        AiStrategy ai2 = new Ai_rand_mode();
+        AiStrategy ai1 = new AiRandMode();
+        AiStrategy ai2 = new AiRandMode();
 
         if(args.length!=0){
         if (args[0].equals("random combo")) {
-            ai1 = new Ai_rand_mode();
-            ai2 = new Ai_comb_mode();
+            ai1 = new AiRandMode();
+            ai2 = new AiCombMode();
         } else if (args[0].equals("combo combo")) {
-            ai1 = new Ai_comb_mode();
-            ai2 = new Ai_comb_mode();
+            ai1 = new AiCombMode();
+            ai2 = new AiCombMode();
         }}
 
-        Ai_player p1 = new Ai_player("p1", ai1);
-        Ai_player p2 = new Ai_player("p2", ai2);
+        AiPlayer p1 = new AiPlayer("p1", ai1);
+        AiPlayer p2 = new AiPlayer("p2", ai2);
 //        System.out.println("tresgrdhtygfcbvxdgfhjmbvngcbfxcgnvmhvnbvc");
 //        System.out.println(p2.getScore());
 //        p1.Init_round();

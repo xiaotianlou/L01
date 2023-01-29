@@ -1,13 +1,10 @@
 package pk;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.Arrays;
 import java.util.Random;
 
-public class Ai_rand_mode implements AiStrategy {
+public class AiRandMode implements AiStrategy {
     static Random rad = new Random();
 
 

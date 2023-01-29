@@ -3,17 +3,13 @@ package pk;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class Ai_comb_mode implements AiStrategy {
+public class AiCombMode implements AiStrategy {
     @Override
     public void turn_acting(Player p) throws Exception {
         boolean[] rolling_number = new boolean[8];
-        for (int i = 0; i < rolling_number.length; i++) {
-            rolling_number[i] = false;
-        }
         p.soft_bag();
         p.refresh_map();
         HashMap<Faces, Integer> record = p.store_temp;
-        int Score = p.getScore();
         int counter=0;
         if (record.get(Faces.SKULL) == 2) {
             MyLogger.log.trace("ending term by player" + p.getName());
@@ -23,7 +19,7 @@ public class Ai_comb_mode implements AiStrategy {
             for (Faces f : Faces.values()) {
                 if (record.get(f) < 3 && f != Faces.SKULL) {
                     for (int i = 0; i < 8; i++) {
-                        if (p.dice_bag[i].equals(f)) {
+                        if (p.dice_bag[i].face.equals(f)) {
                             rolling_number[i] = true;
                         }
                     }
