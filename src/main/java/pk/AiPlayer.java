@@ -7,8 +7,9 @@ public class AiPlayer extends Player {
         super(name);
         this.mode = mode;
     }
-    public void changeMode(){
-        mode
+    public void changeMode(AiStrategy ai){
+        this.mode=ai;
+
     }
 
     public void turn_act() throws Exception {

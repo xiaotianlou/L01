@@ -57,8 +57,8 @@ public class PiratenKarpen {
                 ai2 = new AiCombMode();
             } else if (args[0].equals("combo combo")) {
                 ai1 = new AiCombMode();
-//            ai2 = new AiCombMode();
-                ai2 = new AiBattleMode();
+            ai2 = new AiCombMode();
+
             }
         }
 
@@ -79,8 +79,12 @@ public class PiratenKarpen {
                 Card card2 = cardDraw();
                 p1.Init_round(card1);
 //                Thread.sleep(20);
-                if (card2.getClass().equals(SeaBattle.class)) {
 
+                if (card2.getClass().equals(SeaBattle.class)) {
+                    System.out.println("海战模式");
+                    p2.changeMode(new AiBattleMode());
+                }else{
+                    p2.changeMode(ai2);
                 }
                 p2.Init_round(card2);
 
