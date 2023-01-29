@@ -4,8 +4,6 @@ package pk;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Player {
     private final String name;
@@ -13,6 +11,9 @@ public class Player {
     Dice[] dice_bag = new Dice[8];
     Card card;
     private int score = 0;
+    public void add_score(int val){
+        score+=val;
+    }
 
     public Player(String name) {
         this.name = name;
@@ -29,7 +30,7 @@ public class Player {
     public void seaBattle_Cal() {
         if (sea_battle_state()) {
             MyLogger.log.trace(name + " win the sea battle!");
-            this.score_cal();
+            card.score_cal(this);
             MyLogger.log.trace(name + " get 800 by win the sea battle");
             this.score += 800;
             MyLogger.log.info("player " + this.name + " Current score: "+ getScore());
@@ -91,52 +92,47 @@ public class Player {
         }
     }
 
-    public int score_cal() {
-        AtomicInteger score_change = new AtomicInteger(0);
-        AtomicBoolean Full_chest_counter = new AtomicBoolean(true);
-        refresh_map();
-        if (store_temp.get(Faces.SKULL) >= 3) {
-            MyLogger.log.info("Player " + name + " get " + 0 + " in this term");
-            MyLogger.log.info("Player " + name + " has the score " + score);
-            return this.getScore();
-        }
-
-        store_temp.entrySet().stream().forEach((entry) -> {//combine mark
-            int value = entry.getValue();
-            if (value >= 5) {
-                score_change.addAndGet((int) (500 * Math.pow(2, value - 5)));
-            } else if (value >= 3) {
-                score_change.addAndGet(100 * (value - 2));
-            }
-        });
-        score_change.addAndGet((store_temp.get(Faces.DIAMOND) + store_temp.get(Faces.GOLD)) * 100);//gold and dimond add
-        if (store_temp.get(Faces.SKULL) == 0) {
-            store_temp.forEach((key, value) -> {
-                if (key != Faces.GOLD && key != Faces.DIAMOND && value > 0 & value < 3) {
-                    Full_chest_counter.set(false);
-                }
-            });
-        } else {
-            Full_chest_counter.set(false);
-        }
-        if (Full_chest_counter.get()) {
-            score_change.addAndGet(500);
-        }
-
-
-        this.score += score_change.get();
-        MyLogger.log.info("Player " + name + " get " + score_change.get() + " in this term");
-        MyLogger.log.info("Player " + name + " has the score " + score);
-        return this.getScore();
-    }
+//    public int score_cal() {
+//        AtomicInteger score_change = new AtomicInteger(0);
+//        AtomicBoolean Full_chest_counter = new AtomicBoolean(true);
+//        refresh_map();
+//        if (store_temp.get(Faces.SKULL) >= 3) {
+//            MyLogger.log.info("Player " + name + " get " + 0 + " in this term");
+//            MyLogger.log.info("Player " + name + " has the score " + score);
+//            return this.getScore();
+//        }
+//
+//        store_temp.entrySet().stream().forEach((entry) -> {//combine mark
+//            int value = entry.getValue();
+//            if (value >= 5) {
+//                score_change.addAndGet((int) (500 * Math.pow(2, value - 5)));
+//            } else if (value >= 3) {
+//                score_change.addAndGet(100 * (value - 2));
+//            }
+//        });
+//        score_change.addAndGet((store_temp.get(Faces.DIAMOND) + store_temp.get(Faces.GOLD)) * 100);//gold and dimond add
+//        if (store_temp.get(Faces.SKULL) == 0) {
+//            store_temp.forEach((key, value) -> {
+//                if (key != Faces.GOLD && key != Faces.DIAMOND && value > 0 & value < 3) {
+//                    Full_chest_counter.set(false);
+//                }
+//            });
+//        } else {
+//            Full_chest_counter.set(false);
+//        }
+//        if (Full_chest_counter.get()) {
+//            score_change.addAndGet(500);
+//        }
+//
+//
+//        this.score += score_change.get();
+//        MyLogger.log.info("Player " + name + " get " + score_change.get() + " in this term");
+//        MyLogger.log.info("Player " + name + " has the score " + score);
+//        return this.getScore();
+//    }
 
     public void soft_bag() {
-        Arrays.sort(dice_bag, new Comparator<Dice>() {
-            @Override
-            public int compare(Dice o1, Dice o2) {
-                return o1.face.compareTo(o2.face);
-            }
-        });
+        Arrays.sort(dice_bag, (o1, o2) -> o1.face.compareTo(o2.face));
     }
 
     public void end_turn_check() throws Exception {
@@ -175,14 +171,8 @@ public class Player {
 
 
         } else {
-            score_cal();
+            card.score_cal(this);
         }
-
-
-
-
-
-
     }
 
     public void re_roll(boolean[] index) throws Exception {
