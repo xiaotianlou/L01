@@ -12,4 +12,6 @@ public class MonkeyBusiness extends Card{
         }
         trible_skull_check(p);
     }
+
+
 }
