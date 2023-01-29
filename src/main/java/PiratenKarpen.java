@@ -1,3 +1,4 @@
+
 import pk.*;
 
 import java.util.Collections;
@@ -7,6 +8,10 @@ public class PiratenKarpen {
     static LinkedList<Card> card_bag = new LinkedList<>();
 
     static {
+        loading_card_bag();
+    }
+
+    public static void loading_card_bag(){
         for (int i = 0; i < 35; i++) {
             if (i <= 5) {
                 card_bag.add(new SeaBattle());
@@ -16,7 +21,11 @@ public class PiratenKarpen {
         }
         Collections.shuffle(card_bag);
     }
-    public Card get_card() {
+    public static Card cardDraw() {
+        if(card_bag.peek()==null){
+            loading_card_bag();
+        }
+
         return card_bag.pop();
     }
 
@@ -27,19 +36,21 @@ public class PiratenKarpen {
         MyLogger.changeLoggerLevel("trace");
         System.out.println("1");
         System.out.println("Welcome to Piraten Karpen Simulator1!");
-        int total = 52;
+        int total = 2;
         double p1w = 0;
         double p2w = 0;
-        System.out.println(args[0]);
+
         AiStrategy ai1 = new Ai_rand_mode();
         AiStrategy ai2 = new Ai_rand_mode();
+
+        if(args.length!=0){
         if (args[0].equals("random combo")) {
             ai1 = new Ai_rand_mode();
             ai2 = new Ai_comb_mode();
         } else if (args[0].equals("combo combo")) {
             ai1 = new Ai_comb_mode();
             ai2 = new Ai_comb_mode();
-        }
+        }}
 
         Ai_player p1 = new Ai_player("p1", ai1);
         Ai_player p2 = new Ai_player("p2", ai2);
@@ -52,9 +63,9 @@ public class PiratenKarpen {
         for (int i = 0; i < total; i++) {
 
             while (true) {
-                p1.Init_round();
+                p1.Init_round(cardDraw());
                 Thread.sleep(0);
-                p2.Init_round();
+                p2.Init_round(cardDraw());
                 if (p1.getScore() >= 6000 || p2.getScore() >= 6000) {
                     if (p1.getScore() == p2.getScore()) {
                         System.out.println("thay are same win");
