@@ -11,8 +11,8 @@ public class Player {
     private final String name;
     HashMap<Faces, Integer> store_temp = new HashMap<>();
     Dice[] dice_bag = new Dice[8];
-    private int score = 0;
     Card card;
+    private int score = 0;
 
     public Player(String name) {
         this.name = name;
@@ -25,15 +25,17 @@ public class Player {
     public int getScore() {
         return this.score;
     }
-    public void seaBattle(Boolean winOrLose){
-        if(winOrLose){
+
+    public void seaBattle_Cal() {
+        if (sea_battle_state()) {
             this.score_cal();
-            MyLogger.log.trace(name+" get 800 by win the sea battle");
-            this.score+=800;
-        }else{
-            MyLogger.log.trace(name+" lose 800 by lose the sea battle,and end the term");
-            this.score-=800;
+            MyLogger.log.trace(name + " get 800 by win the sea battle");
+            this.score += 800;
+        } else {
+            MyLogger.log.trace(name + " lose 800 by lose the sea battle,and end the term");
+            this.score -= 800;
             MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
+            MyLogger.log.info("player" + this.name + "Current score: "+ getScore());
         }
 
     }
@@ -58,7 +60,7 @@ public class Player {
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
         }
-        this.card=card;
+        this.card = card;
         card.end_turn_check(this);
     }
 
@@ -147,9 +149,19 @@ public class Player {
         }
     }
 
+    public boolean sea_battle_state() {
+        this.refresh_map();
+        return this.store_temp.get(Faces.SABER) >= 3;
+    }
+
     public void end_turn() {
         MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
-        score_cal();
+        if (card.getClass() != SeaBattle.class) {
+            score_cal();
+        } else {
+            seaBattle_Cal();
+
+        }
     }
 
     public void re_roll(boolean[] index) throws Exception {

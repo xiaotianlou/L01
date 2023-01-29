@@ -12,6 +12,7 @@ public abstract class Card {
         } else return false;
     }
 
+
     public void trible_skull_check(Player p) throws Exception {
         int count = 0;
         for (Dice d : p.dice_bag) {

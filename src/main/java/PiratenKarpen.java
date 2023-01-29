@@ -36,7 +36,7 @@ public class PiratenKarpen {
         MyLogger.changeLoggerLevel("trace");
         System.out.println("1");
         System.out.println("Welcome to Piraten Karpen Simulator1!");
-        int total = 52;
+        int total = 3;
         double p1w = 0;
         double p2w = 0;
 
@@ -63,6 +63,7 @@ public class PiratenKarpen {
         for (int i = 0; i < total; i++) {
 
             while (true) {
+                MyLogger.log.info("=======================================this is "+i+" games ====================================");
                 p1.Init_round(cardDraw());
 //                Thread.sleep(20);
                 p2.Init_round(cardDraw());
