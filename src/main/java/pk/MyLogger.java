@@ -11,22 +11,24 @@ public class MyLogger {
     public static Logger log = LogManager.getLogger(MyLogger.class);
 
     public static void changeLoggerLevel(String level) {
+        // String loggerFactoryClassStr =
+        // StaticLoggerBinder.getSingleton().getLoggerFactoryClassStr();
+        // System.out.println("loggerFactoryClassStr>>>>" + loggerFactoryClassStr);
 
-        try (LoggerContext ctx = (LoggerContext) LogManager.getContext(false)) {
-            Configuration config = ctx.getConfiguration();
-            LoggerConfig loggerConfig = config.getLoggerConfig(LogManager.ROOT_LOGGER_NAME);
+        LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
+        Configuration config = ctx.getConfiguration();
+        LoggerConfig loggerConfig = config.getLoggerConfig(LogManager.ROOT_LOGGER_NAME);
 
-            switch (level) {
-                case "debug" -> loggerConfig.setLevel(Level.DEBUG);
-                case "info" -> loggerConfig.setLevel(Level.INFO);
-                case "warn" -> loggerConfig.setLevel(Level.WARN);
-                case "error" -> loggerConfig.setLevel(Level.ERROR);
-                case "fatal" -> loggerConfig.setLevel(Level.FATAL);
-                case "trace" -> loggerConfig.setLevel(Level.TRACE);
-                default -> {
-                }
+        switch (level) {
+            case "debug" -> loggerConfig.setLevel(Level.DEBUG);
+            case "info" -> loggerConfig.setLevel(Level.INFO);
+            case "warn" -> loggerConfig.setLevel(Level.WARN);
+            case "error" -> loggerConfig.setLevel(Level.ERROR);
+            case "fatal" -> loggerConfig.setLevel(Level.FATAL);
+            case "trace" -> loggerConfig.setLevel(Level.TRACE);
+            default -> {
             }
-            ctx.updateLoggers();
         }
+        ctx.updateLoggers();
     }
 }
