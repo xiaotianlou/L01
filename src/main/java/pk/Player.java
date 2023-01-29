@@ -28,14 +28,16 @@ public class Player {
 
     public void seaBattle_Cal() {
         if (sea_battle_state()) {
+            MyLogger.log.trace(name + " win the sea battle!");
             this.score_cal();
             MyLogger.log.trace(name + " get 800 by win the sea battle");
             this.score += 800;
+            MyLogger.log.info("player " + this.name + " Current score: "+ getScore());
         } else {
             MyLogger.log.trace(name + " lose 800 by lose the sea battle,and end the term");
             this.score -= 800;
             MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
-            MyLogger.log.info("player" + this.name + "Current score: "+ getScore());
+            MyLogger.log.info("player " + this.name + " Current score: "+ getScore());
         }
 
     }
