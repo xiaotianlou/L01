@@ -1,6 +1,5 @@
 package pk;
 
-import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -13,14 +12,13 @@ public abstract class Card {
             return true;
         } else return false;
     }
-    public void score_cal(Player p) {
+    public int calculation(Player p){
         AtomicInteger score_change = new AtomicInteger(0);
         AtomicBoolean Full_chest_counter = new AtomicBoolean(true);
-        p.refresh_map();
         if (p.store_temp.get(Faces.SKULL) >= 3) {
             MyLogger.log.info("Player " + p.getName()+ " get " + 0 + " in this term");
             MyLogger.log.info("Player " + p.getName() + " has the score " + p.getScore());
-            return;
+            return 0;
         }
 
         p.store_temp.entrySet().stream().forEach((entry) -> {//combine mark
@@ -46,7 +44,13 @@ public abstract class Card {
         }
 
         p.add_score(score_change.get());
-        MyLogger.log.info("Player " + p.getName() + " get " + score_change.get() + " in this term");
+        return score_change.get();
+    }
+
+    public void score_cal(Player p) {
+        p.refresh_map();
+       int score_change =calculation(p);
+        MyLogger.log.info("Player " + p.getName() + " get " + score_change + " in this term");
         MyLogger.log.info("Player " + p.getName() + " has the score " + p.getScore());
     }
 

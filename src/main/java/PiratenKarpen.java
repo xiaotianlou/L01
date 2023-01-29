@@ -13,20 +13,17 @@ public class PiratenKarpen {
     public static void loading_card_bag() {
         for (int i = 0; i < 35; i++) {
             if (i <= 5) {
-                card_bag.add(new SeaBattle());
+                card_bag.add(new MonkeyBusiness());
             } else {
                 card_bag.add(new NopeCard());
             }
         }
-
         Collections.shuffle(card_bag);
     }
-
     public static Card cardDraw() {
         if (card_bag.peek() == null) {
             loading_card_bag();
         }
-
         return card_bag.pop();
     }
 
