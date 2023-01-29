@@ -166,12 +166,23 @@ public class Player {
 
     public void end_turn() {
         MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
-        if (card.getClass() != SeaBattle.class) {
-            score_cal();
-        } else {
-            seaBattle_Cal();
 
+
+
+        if (card.getClass().equals(SeaBattle.class)) {
+            seaBattle_Cal();
+        } else if (card.getClass().equals(MonkeyBusiness.class)) {
+
+
+        } else {
+            score_cal();
         }
+
+
+
+
+
+
     }
 
     public void re_roll(boolean[] index) throws Exception {

@@ -25,14 +25,7 @@ public class SeaBattle extends Card {
         MyLogger.log.info("if " + p.getName() + " lose the seabattle he will lose 800 marks and dice will ignore");
 
         p.print_dice_bag();
-
-
         trible_skull_check(p);
-
-
-
-
-
         winner_check(p);
     }
 
