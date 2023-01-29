@@ -2,7 +2,7 @@ package pk;
 
 public class SeaBattle extends Card{
     public void end_turn_check(Player p) throws Exception {
-        System.out.println("this is sea battle end the tern");
+        MyLogger.log.info("this is sea battle mode");
         p.print_dice_bag();
         int count = 0;
         if (p.getScore() >= 6000) {

@@ -36,7 +36,7 @@ public class PiratenKarpen {
         MyLogger.changeLoggerLevel("trace");
         System.out.println("1");
         System.out.println("Welcome to Piraten Karpen Simulator1!");
-        int total = 2;
+        int total = 52;
         double p1w = 0;
         double p2w = 0;
 
@@ -64,11 +64,11 @@ public class PiratenKarpen {
 
             while (true) {
                 p1.Init_round(cardDraw());
-                Thread.sleep(0);
+//                Thread.sleep(20);
                 p2.Init_round(cardDraw());
                 if (p1.getScore() >= 6000 || p2.getScore() >= 6000) {
                     if (p1.getScore() == p2.getScore()) {
-                        System.out.println("thay are same win");
+                        System.out.println("thay are win together");
                         p1.restart();
                         p2.restart();
                         break;
@@ -91,9 +91,9 @@ public class PiratenKarpen {
             }
 
         }
-        MyLogger.log.debug("p1:" + p1w / total);
-        MyLogger.log.debug("p2:" + p2w / total);
-        MyLogger.log.debug("+" + (p1w / total + p2w / total));
+        MyLogger.log.debug("p1 win:" + p1w / total);
+        MyLogger.log.debug("p2 win:" + p2w / total);
+        MyLogger.log.debug("same win: " + (1-(p1w / total + p2w / total)));
     }
 
 
