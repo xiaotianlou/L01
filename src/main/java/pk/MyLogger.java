@@ -11,10 +11,6 @@ public class MyLogger {
     public static Logger log = LogManager.getLogger(MyLogger.class);
 
     public static void changeLoggerLevel(String level) {
-        // String loggerFactoryClassStr =
-        // StaticLoggerBinder.getSingleton().getLoggerFactoryClassStr();
-        // System.out.println("loggerFactoryClassStr>>>>" + loggerFactoryClassStr);
-
         LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
         Configuration config = ctx.getConfiguration();
         LoggerConfig loggerConfig = config.getLoggerConfig(LogManager.ROOT_LOGGER_NAME);
