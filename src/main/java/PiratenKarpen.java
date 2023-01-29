@@ -1,4 +1,3 @@
-
 import pk.*;
 
 import java.util.Collections;
@@ -11,7 +10,7 @@ public class PiratenKarpen {
         loading_card_bag();
     }
 
-    public static void loading_card_bag(){
+    public static void loading_card_bag() {
         for (int i = 0; i < 35; i++) {
             if (i <= 5) {
                 card_bag.add(new SeaBattle());
@@ -29,8 +28,9 @@ public class PiratenKarpen {
 //        }
         Collections.shuffle(card_bag);
     }
+
     public static Card cardDraw() {
-        if(card_bag.peek()==null){
+        if (card_bag.peek() == null) {
             loading_card_bag();
         }
 
@@ -44,21 +44,23 @@ public class PiratenKarpen {
         MyLogger.changeLoggerLevel("trace");
         System.out.println("1");
         System.out.println("Welcome to Piraten Karpen Simulator1!");
-        int total = 3;
+        int total = 52;
         double p1w = 0;
         double p2w = 0;
 
         AiStrategy ai1 = new AiRandMode();
         AiStrategy ai2 = new AiRandMode();
 
-        if(args.length!=0){
-        if (args[0].equals("random combo")) {
-            ai1 = new AiRandMode();
-            ai2 = new AiCombMode();
-        } else if (args[0].equals("combo combo")) {
-            ai1 = new AiCombMode();
-            ai2 = new AiCombMode();
-        }}
+        if (args.length != 0) {
+            if (args[0].equals("random combo")) {
+                ai1 = new AiRandMode();
+                ai2 = new AiCombMode();
+            } else if (args[0].equals("combo combo")) {
+                ai1 = new AiCombMode();
+//            ai2 = new AiCombMode();
+                ai2 = new AiBattleMode();
+            }
+        }
 
         AiPlayer p1 = new AiPlayer("p1", ai1);
         AiPlayer p2 = new AiPlayer("p2", ai2);
@@ -71,10 +73,18 @@ public class PiratenKarpen {
         for (int i = 0; i < total; i++) {
 
             while (true) {
-                MyLogger.log.info("=======================================this is "+i+" games ====================================");
-                p1.Init_round(cardDraw());
+                MyLogger.log.info("=======================================this is " + i + " games ====================================");
+
+                Card card1 = cardDraw();
+                Card card2 = cardDraw();
+                p1.Init_round(card1);
 //                Thread.sleep(20);
-                p2.Init_round(cardDraw());
+                if (card2.getClass().equals(SeaBattle.class)) {
+
+                }
+                p2.Init_round(card2);
+
+
                 if (p1.getScore() >= 6000 || p2.getScore() >= 6000) {
                     if (p1.getScore() == p2.getScore()) {
                         System.out.println("thay are win together");
@@ -102,13 +112,11 @@ public class PiratenKarpen {
         }
         MyLogger.log.debug("p1 win:" + p1w / total);
         MyLogger.log.debug("p2 win:" + p2w / total);
-        MyLogger.log.debug("same win: " + (1-(p1w / total + p2w / total)));
+        MyLogger.log.debug("same win: " + (1 - (p1w / total + p2w / total)));
     }
 
 
 //    static Logger log = LogManager.getLogger(PiratenKarpen.class);
-
-
 
 
     //draft: skull lock,three skull stop with 0 except in island of skull
