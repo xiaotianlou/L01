@@ -25,6 +25,20 @@ public class Player {
     public int getScore() {
         return this.score;
     }
+    public void seaBattle(Boolean winOrLose){
+        if(winOrLose){
+            this.score_cal();
+            MyLogger.log.trace(name+" get 800 by win the sea battle");
+            this.score+=800;
+        }else{
+            MyLogger.log.trace(name+" lose 800 by lose the sea battle,and end the term");
+            this.score-=800;
+            end_turn();
+
+        }
+
+    }
+
 
     public String getName() {
         return this.name;
