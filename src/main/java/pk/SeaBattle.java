@@ -18,7 +18,12 @@ public class SeaBattle extends Card {
         }
         MyLogger.log.trace("skull count=" + count);
         if (count >= 3) {
-            p.sc
+            p.refresh_map();
+            if(p.store_temp.get(Faces.SABER)>=3){
+                p.seaBattle(true);
+            }else{
+                p.seaBattle(false);
+            }
 
         } else {
             p.turn_act();
@@ -35,10 +40,7 @@ public class SeaBattle extends Card {
 
 
 
-
-        if (winner_check(p)) {
-            return;
-        }
+        winner_check(p);
 
 
 

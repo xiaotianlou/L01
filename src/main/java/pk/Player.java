@@ -33,8 +33,7 @@ public class Player {
         }else{
             MyLogger.log.trace(name+" lose 800 by lose the sea battle,and end the term");
             this.score-=800;
-            end_turn();
-
+            MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
         }
 
     }
