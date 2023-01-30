@@ -56,6 +56,6 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x  |F16  | make battle mode| D   | 01/01/23      | 01/24/28
 | x  |F17  | clean mess| D     |01/01/23     | 01/24/28
 | x  |F18  | make money business card| D    | 01/01/28       | 01/29/28      |
-| x  |F19  |update pmd | D   | 01/29/28       | 01/29/28    |
+| x  |F19  |update CLI | D   | 01/29/28       | 01/29/28    |
 | x  |F20  |update skull islan |D     | 01/29/28      |01/29/28    |
 
