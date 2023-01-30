@@ -20,6 +20,7 @@ public class PiratenKarpen {
         }
         Collections.shuffle(card_bag);
     }
+
     public static Card cardDraw() {
         if (card_bag.peek() == null) {
             loading_card_bag();
@@ -37,7 +38,6 @@ public class PiratenKarpen {
 
         AiStrategy ai1 = new AiRandMode();
         AiStrategy ai2 = new AiRandMode();
-
 
 
         if (args.length != 0) {
@@ -61,7 +61,6 @@ public class PiratenKarpen {
                 Card card1 = cardDraw();
                 Card card2 = cardDraw();
                 p1.Init_round(card1);
-//                Thread.sleep(20);
                 p2.Init_round(card2);
                 if (p1.getScore() >= 6000 || p2.getScore() >= 6000) {
                     if (p1.getScore() == p2.getScore()) {
@@ -84,7 +83,7 @@ public class PiratenKarpen {
                             break;
                         }
                     }
-                }
+                }// winner cal
             }
         }
         //stop game

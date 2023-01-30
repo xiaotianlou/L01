@@ -1,17 +1,16 @@
 package pk;
 
-public class MonkeyBusiness extends Card{
+public class MonkeyBusiness extends Card {
 
 
     public void score_cal(Player p) {
         p.refresh_map();
-        p.store_temp.put(Faces.MONKEY,p.store_temp.get(Faces.MONKEY)+p.store_temp.get(Faces.PARROT));
-        p.store_temp.put(Faces.PARROT,0);
-        int score_change =calculation(p);
+        p.store_temp.put(Faces.MONKEY, p.store_temp.get(Faces.MONKEY) + p.store_temp.get(Faces.PARROT));
+        p.store_temp.put(Faces.PARROT, 0);
+        int score_change = calculation(p);
         MyLogger.log.info("Player " + p.getName() + " get " + score_change + " in this term");
         MyLogger.log.info("Player " + p.getName() + " has the score " + p.getScore());
     }
-
 
 
     @Override
@@ -23,7 +22,6 @@ public class MonkeyBusiness extends Card{
             return;
         }
         trible_skull_check(p);
-
 
 
     }

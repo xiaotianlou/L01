@@ -20,7 +20,6 @@ public abstract class Card {
             MyLogger.log.info("Player " + p.getName() + " has the score " + p.getScore());
             return 0;
         }
-
         p.store_temp.entrySet().stream().forEach((entry) -> {//combine mark
             int value = entry.getValue();
             if (value >= 5) {

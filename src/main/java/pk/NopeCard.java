@@ -1,6 +1,6 @@
 package pk;
 
-public class NopeCard extends Card{
+public class NopeCard extends Card {
     public void end_turn_check(Player p) throws Exception {
 
         MyLogger.log.info("this is NopeCard");
@@ -13,7 +13,6 @@ public class NopeCard extends Card{
         }
 
         trible_skull_check(p);
-
 
     }
 }

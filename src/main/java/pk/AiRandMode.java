@@ -7,7 +7,6 @@ import java.util.Random;
 public class AiRandMode implements AiStrategy {
     static Random rad = new Random();
 
-
     @Override
     public void turn_acting(Player p) throws Exception {
         boolean[] temp = new boolean[8];

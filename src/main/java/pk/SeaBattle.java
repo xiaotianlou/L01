@@ -19,21 +19,21 @@ public class SeaBattle extends Card {
             p.turn_act();
         }
     }
+
     public void score_cal(Player p) {
         if (p.sea_battle_state()) {
             MyLogger.log.trace(p.getName() + " win the sea battle!");
             super.score_cal(p);
             MyLogger.log.trace(p.getName() + " get 800 by win the sea battle");
             p.add_score(800);
-            MyLogger.log.info("player " + p.getName() + " Current score: "+ p.getScore());
+            MyLogger.log.info("player " + p.getName() + " Current score: " + p.getScore());
         } else {
             MyLogger.log.trace(p.getName() + " lose 800 by lose the sea battle,and end the term");
             p.add_score(-800);
             MyLogger.log.info("------------------End The " + p.getName() + " Term-------------------");
-            MyLogger.log.info("player " + p.getName() + " Current score: "+ p.getScore());
+            MyLogger.log.info("player " + p.getName() + " Current score: " + p.getScore());
         }
     }
-
 
 
     public void end_turn_check(Player p) throws Exception {
