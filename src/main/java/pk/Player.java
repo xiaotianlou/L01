@@ -84,7 +84,7 @@ public class Player {
 //                            p2.changeMode( new AiCombMode(););
         //                }
 
-        card.end_turn_check(this);
+        this.card.end_turn_check(this);
     }
 
     public void restart() {

@@ -37,7 +37,7 @@ public class PiratenKarpen {
         MyLogger.changeLoggerLevel(loglevel);
 
         System.out.println("Welcome to Piraten Karpen Simulator1!");
-        int total = 52;
+        int total = 200;
         double p1w = 0;
         double p2w = 0;
 
@@ -59,6 +59,7 @@ public class PiratenKarpen {
 
         AiPlayer p1 = new AiPlayer("p1", ai1);
         AiPlayer p2 = new AiPlayer("p2", ai2);
+
 //start game
         for (int i = 0; i < total; i++) {
             while (true) {

@@ -36,7 +36,6 @@ public class SkullIsland extends Card{
         int difference = skull_after-skull_count_before;
         if(difference>0){
             p.turn_act();
-
         }else {
          MyLogger.log.trace("no more skull be roll, end the term, other player lose mark");
             p.end_turn();
