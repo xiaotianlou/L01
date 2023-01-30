@@ -11,9 +11,6 @@ public class Player {
     Dice[] dice_bag = new Dice[8];
     Card card;
     private int score;
-    public void add_score(int val){
-        score+=val;
-    }
 
     public Player(String name) {
         this.name = name;
@@ -21,6 +18,10 @@ public class Player {
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
         }
+    }
+
+    public void add_score(int val) {
+        score += val;
     }
 
     public int getScore() {
@@ -33,12 +34,12 @@ public class Player {
             card.score_cal(this);
             MyLogger.log.trace(name + " get 800 by win the sea battle");
             this.score += 800;
-            MyLogger.log.info("player " + this.name + " Current score: "+ getScore());
+            MyLogger.log.info("player " + this.name + " Current score: " + getScore());
         } else {
             MyLogger.log.trace(name + " lose 800 by lose the sea battle,and end the term");
             this.score -= 800;
             MyLogger.log.info("------------------End The " + this.name + " Term-------------------");
-            MyLogger.log.info("player " + this.name + " Current score: "+ getScore());
+            MyLogger.log.info("player " + this.name + " Current score: " + getScore());
         }
 
     }
@@ -64,12 +65,11 @@ public class Player {
             dice_bag[i] = new Dice();
         }
         this.card = card;
-        //change stra
         //if (card.getClass().equals(SeaBattle.class)) {
         //                    System.out.println("seabattlemode");
         //                    p2.changeMode(new AiBattleMode());
         //                }else{
-        //                    p2.changeMode( new AiCombMode(););
+//                            p2.changeMode( new AiCombMode(););
         //                }
 
         card.end_turn_check(this);
@@ -109,7 +109,7 @@ public class Player {
 //
 //
 //        } else {
-            card.score_cal(this);
+        card.score_cal(this);
 //        }
     }
 

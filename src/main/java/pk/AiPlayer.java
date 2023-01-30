@@ -9,7 +9,6 @@ public class AiPlayer extends Player {
     }
     public void changeMode(AiStrategy ai){
         this.mode=ai;
-
     }
 
     public void turn_act() throws Exception {
