@@ -1,12 +1,11 @@
 package pk;
 
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.*;
 
 public class Player {
     private final String name;
+    private static ArrayList<Player> player_list = new ArrayList<>();
     HashMap<Faces, Integer> store_temp = new HashMap<>();
     Dice[] dice_bag = new Dice[8];
     Card card;
@@ -18,6 +17,11 @@ public class Player {
         for (int i = 0; i < dice_bag.length; i++) {
             dice_bag[i] = new Dice();
         }
+        Player.player_list.add(this);
+    }
+    public ArrayList<Player> getPlayer_list(){
+        Player.player_list.remove(this);
+        return Player.player_list;
     }
 
     public void add_score(int val) {
@@ -65,6 +69,14 @@ public class Player {
             dice_bag[i] = new Dice();
         }
         this.card = card;
+        refresh_map();
+        if(store_temp.get(Faces.SKULL)>=4){
+            this.card=new SkullIsland();
+        }
+
+
+
+
         //if (card.getClass().equals(SeaBattle.class)) {
         //                    System.out.println("seabattlemode");
         //                    p2.changeMode(new AiBattleMode());
