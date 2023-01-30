@@ -1,7 +1,9 @@
+import org.apache.logging.log4j.Level;
 import pk.*;
 
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class PiratenKarpen {
     static LinkedList<Card> card_bag = new LinkedList<>();
@@ -30,7 +32,11 @@ public class PiratenKarpen {
 
 
     public static void main(String[] args) throws Exception {
-        MyLogger.changeLoggerLevel("trace");
+        Scanner s = new Scanner(System.in);
+        System.out.println("input the log level you want (trace,fatal,error,warn,info,debug)");
+        String loglevel=s.nextLine().trim().toLowerCase();
+        MyLogger.changeLoggerLevel(loglevel);
+
         System.out.println("Welcome to Piraten Karpen Simulator1!");
         int total = 52;
         double p1w = 0;

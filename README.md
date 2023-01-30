@@ -10,10 +10,9 @@
   * To compile the project:
     * `mvn compile`
   * To run the project in development mode:
-    * `mvn -q exec:java -Dexec.args="1"` (here, `-q` tells maven to be _quiet_)
-    * `mvn -q exec:java -Dexec.args="trace"`(start at **trace** mode)
-    * `mvn -q exec:java -Dexec.args="debug"`(start at **debug** mode)
-    * `mvn -q exec:java -Dexec.args="error"`(start at **error** mode)
+  * type the mode in string after start program
+  * 
+  * start program with choosed ai mode
     * `mvn -q exec:java -Dexec.args="random combo"`(start with ai slect)
     * `mvn -q exec:java -Dexec.args="combo combo"`(start with ai slect)
   * To package the project as a turn-key artefact:
