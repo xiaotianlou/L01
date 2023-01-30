@@ -24,9 +24,11 @@ public class SkullIsland extends Card{
         int score_change =100*p.store_temp.get(Faces.SKULL);
 
         for (Player other:p.getPlayer_list()){
-            other.add_score(score_change);
-            MyLogger.log.info("Player " + other.getName() + " lose " + score_change + " by skull island in this term");
-            MyLogger.log.info("Player " + p.getName() + " has the score " + p.getScore());
+            if (other.getName()!=p.getName()) {
+                other.add_score(-1*score_change);
+                MyLogger.log.info("Player " + other.getName() + " lose " + score_change + " by skull island in this term");
+                MyLogger.log.info("Player " + other.getName() + " has the score " + other.getScore());
+            }
         }
 
         MyLogger.log.info("Player " + p.getName() + " has the score " + p.getScore());
@@ -34,6 +36,7 @@ public class SkullIsland extends Card{
     }
     public void trible_skull_check(Player p) throws Exception {
         int difference = skull_after-skull_count_before;
+        skull_count_before=skull_after;
         if(difference>0){
             p.turn_act();
         }else {

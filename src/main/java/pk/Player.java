@@ -20,7 +20,7 @@ public class Player {
         Player.player_list.add(this);
     }
     public ArrayList<Player> getPlayer_list(){
-        Player.player_list.remove(this);
+
         return Player.player_list;
     }
 
