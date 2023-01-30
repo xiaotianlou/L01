@@ -17,8 +17,8 @@
   * To package the project as a turn-key artefact:
     * `mvn package`
   * To run the packaged delivery:
-    * `java -jar target/piraten-karpen-jar-with-dependencies.jar` 
-    * `mvn -q exec:java -ae -be"`
+    * `java -jar target/piraten-karpen-jar-with-dependencies.jar`
+    * `java -jar target/piraten-karpen-jar-with-dependencies.jar -cc` (run with combo and combo player)
 
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
 

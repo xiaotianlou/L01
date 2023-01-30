@@ -33,60 +33,51 @@ public class PiratenKarpen {
 
     public static void main(String[] args) throws Exception {
         Scanner s = new Scanner(System.in);
-        System.out.println("input the log level you want (trace,fatal,error,warn,info,debug)");
-        String loglevel = s.nextLine().trim().toLowerCase();
-        MyLogger.changeLoggerLevel(loglevel);
-
-
+//        System.out.println("input the log level you want (trace,fatal,error,warn,info,debug)");
+//        String loglevel = s.nextLine().trim().toLowerCase();
+//        MyLogger.changeLoggerLevel(loglevel);
 
         System.out.println("Welcome to Piraten Karpen Simulator1!");
         int total = 52;
-        System.out.println("how many games you want simulation");
-        total=s.nextInt();
-
-
-
-//        Options options = new Options();
-//        Option alpha = new Option("ae", "be", false, "combo choose for player");
-//        options.addOption(alpha);
-//// define parser
-//        CommandLine cmd;
-//        CommandLineParser parser = new BasicParser();
-//        HelpFormatter helper = new HelpFormatter();
-//        try {
-//            cmd = parser.parse(options, args);
-//            if(cmd.hasOption("ae")){
-//                System.out.println( "has option");
-//            }else {
-//                System.out.println("not");
-//            }
-//
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-
-
-
-
-
-        double p1w = 0;
-        double p2w = 0;
+//        System.out.println("how many games you want simulation");
+//        total=s.nextInt();
 
         AiStrategy ai1 = new AiRandMode();
         AiStrategy ai2 = new AiRandMode();
 
 
-        if (args.length != 0) {
-            String[] input = args[0].split(" ");
+        Options options = new Options();
+        Option alpha = new Option("cc", "combo combo", false, "combo choose for player");
+        options.addOption(alpha);
+// define parser
+        CommandLine cmd;
+        CommandLineParser parser = new BasicParser();
+        HelpFormatter helper = new HelpFormatter();
+        try {
+            cmd = parser.parse(options, args);
+            if(cmd.hasOption("cc")){
+                System.out.println( "has option");
+                ai1 = new AiCombMode();
+                ai2 = new AiCombMode();
+            }else {
+                if (args.length != 0) {
+                    String[] input = args[0].split(" ");
 
-            if (input[0].equals("random")) ai1 = new AiRandMode();
-            if (input[0].equals("combo")) ai1 = new AiCombMode();
-            if (input[0].equals("seabattle")) ai1 = new AiBattleMode();
+                    if (input[0].equals("random")) ai1 = new AiRandMode();
+                    if (input[0].equals("combo")) ai1 = new AiCombMode();
+                    if (input[0].equals("seabattle")) ai1 = new AiBattleMode();
 
-            if (input[1].equals("random")) ai2 = new AiRandMode();
-            if (input[1].equals("combo")) ai2 = new AiCombMode();
-            if (input[1].equals("seabattle")) ai2 = new AiBattleMode();
+                    if (input[1].equals("random")) ai2 = new AiRandMode();
+                    if (input[1].equals("combo")) ai2 = new AiCombMode();
+                    if (input[1].equals("seabattle")) ai2 = new AiBattleMode();
+                }
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        double p1w = 0;
+        double p2w = 0;
 
         AiPlayer p1 = new AiPlayer("p1", ai1);
         AiPlayer p2 = new AiPlayer("p2", ai2);
