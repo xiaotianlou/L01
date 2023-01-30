@@ -18,7 +18,7 @@
     * `mvn package`
   * To run the packaged delivery:
     * `java -jar target/piraten-karpen-jar-with-dependencies.jar`
-    * `java -jar target/piraten-karpen-jar-with-dependencies.jar -cc` (run with combo and combo player)
+    * `java -jar target/piraten-karpen-jar-with-dependencies.jar -cc -n 3` (run with combo and combo player)
 
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
 
