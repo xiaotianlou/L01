@@ -55,8 +55,6 @@ public class PiratenKarpen {
             if (input[1].equals("random")) ai2 = new AiRandMode();
             if (input[1].equals("combo")) ai2 = new AiCombMode();
             if (input[1].equals("seabattle")) ai2 = new AiBattleMode();
-
-
         }
 
         AiPlayer p1 = new AiPlayer("p1", ai1);
