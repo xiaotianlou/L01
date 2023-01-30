@@ -27,11 +27,12 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
    * Pending (P), Started (S), Blocked (B), Done (D)
  * Definition of Done (DoD):
    * < print the percentage win of random player >
+   * <>make log 4j>
    * <have right scoring method>
- * <have ai mode>
- * <have Card>
- * <have seabattle>
- * <have monkey business>
+   * <have ai mode>
+   * <have Card>
+   * <have seabattle>
+  * <have monkey business>
 
 ### Backlog 
 
