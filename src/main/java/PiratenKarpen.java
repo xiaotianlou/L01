@@ -33,7 +33,9 @@ public class PiratenKarpen {
 
     public static void main(String[] args) throws Exception {
         Scanner s = new Scanner(System.in);
-
+        System.out.println("input the log level you want (trace,fatal,error,warn,info,debug)");
+        String loglevel = s.nextLine().trim().toLowerCase();
+        MyLogger.changeLoggerLevel(loglevel);
 
         System.out.println("Welcome to Piraten Karpen Simulator1!");
         int total = 52;
@@ -43,7 +45,7 @@ public class PiratenKarpen {
         Options options = new Options();
         Option alpha = new Option("cc", "combo combo", false, "combo choose for player");
         options.addOption(alpha);
-        Option config = Option.builder("n").longOpt("number")
+        Option config = Option.builder("n").longOpt("number")//Here the builder reports an error but it actually compiles and functions fine, idk why :)
                 .argName("numberofsi")
                 .hasArg()
                 .required(true)
@@ -66,9 +68,6 @@ public class PiratenKarpen {
                 total=opt_config;
             }
             if (!cmd.hasOption("cc")&&!cmd.hasOption("n")&&args.length!=0) {
-                System.out.println("input the log level you want (trace,fatal,error,warn,info,debug)");
-                String loglevel = s.nextLine().trim().toLowerCase();
-                MyLogger.changeLoggerLevel(loglevel);
                 String[] input = args[0].split(" ");
 
                 if (input[0].equals("random")) ai1 = new AiRandMode();
@@ -96,7 +95,7 @@ public class PiratenKarpen {
 //start game
         for (int i = 0; i < total; i++) {
             while (true) {
-                MyLogger.log.info("=======================================this is " + i+1 + " games ====================================");
+                MyLogger.log.info("=======================================this is " + (i+1) + " games ====================================");
 
                 Card card1 = cardDraw();
                 Card card2 = cardDraw();
