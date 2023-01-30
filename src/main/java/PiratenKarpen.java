@@ -36,8 +36,12 @@ public class PiratenKarpen {
         String loglevel = s.nextLine().trim().toLowerCase();
         MyLogger.changeLoggerLevel(loglevel);
 
+
+
         System.out.println("Welcome to Piraten Karpen Simulator1!");
-        int total = 200;
+        int total = 52;
+        System.out.println("how many games you want simulation");
+        total=s.nextInt();
         double p1w = 0;
         double p2w = 0;
 
