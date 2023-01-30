@@ -45,7 +45,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x  |F10  |wirie the scoring logcial | D   | 01/01/23      | 01/24/23
 | x  |F11  |making ai mode | D    | 01/01/23      |  01/24/23
 | x  |F12  | make card bag| D     | 01/01/23       |  01/24/23
-| x  |F13  |design for card class | D   01/01/23     |       | 01/24/23
+| x  |F13  |design for card class | D |  01/01/23     | 01/24/23
 | x  |F14  |reload strategy | D   | 01/01/23     |   01/24/28
 | x  |F15  |make sea battle | D    | 01/01/23      | 01/24/28
 | x  |F16  | make battle mode| D   | 01/01/23      | 01/24/28
