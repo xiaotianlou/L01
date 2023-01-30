@@ -59,4 +59,4 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x  |F18  | make money business card| D    | 01/01/28       | 01/29/28      |
 | x  |F19  |update PMD | D   | 01/29/28       | 01/29/28    |
 | x  |F20  |update skull islan |D     | 01/29/28      |01/29/28    |
-| x  |F21  |update Cpl | D   | 01/29/28       | 01/29/28    |
+| x  |F21  |update Cpl choosing simulation times | D   | 01/29/28       | 01/29/28    |

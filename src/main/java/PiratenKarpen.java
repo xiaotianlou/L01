@@ -1,3 +1,4 @@
+
 import org.apache.commons.cli.*;
 import pk.*;
 
@@ -45,7 +46,8 @@ public class PiratenKarpen {
         Options options = new Options();
         Option alpha = new Option("cc", "combo combo", false, "combo choose for player");
         options.addOption(alpha);
-        Option config = Option.builder("n").longOpt("number")//Here the builder reports an error but it actually compiles and functions fine, idk why :)
+        Option config = Option.builder("n").longOpt("number")//Here the builder reports an error but it actually compiles and functions well,it
+                                                            //it will not be fcuntion if delate it  idk why :)
                 .argName("numberofsi")
                 .hasArg()
                 .required(true)
