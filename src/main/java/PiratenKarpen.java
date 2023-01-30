@@ -1,4 +1,3 @@
-import org.apache.logging.log4j.Level;
 import pk.*;
 
 import java.util.Collections;
@@ -34,7 +33,7 @@ public class PiratenKarpen {
     public static void main(String[] args) throws Exception {
         Scanner s = new Scanner(System.in);
         System.out.println("input the log level you want (trace,fatal,error,warn,info,debug)");
-        String loglevel=s.nextLine().trim().toLowerCase();
+        String loglevel = s.nextLine().trim().toLowerCase();
         MyLogger.changeLoggerLevel(loglevel);
 
         System.out.println("Welcome to Piraten Karpen Simulator1!");
@@ -47,14 +46,17 @@ public class PiratenKarpen {
 
 
         if (args.length != 0) {
-            if (args[0].equals("random combo")) {
-                ai1 = new AiRandMode();
-                ai2 = new AiCombMode();
-            } else if (args[0].equals("combo combo")) {
-                ai1 = new AiCombMode();
-                ai2 = new AiCombMode();
-//                ai2 = new AiBattleMode(); test
-            }
+            String[] input = args[0].split(" ");
+
+            if (input[0].equals("random")) ai1 = new AiRandMode();
+            if (input[0].equals("combo")) ai1 = new AiCombMode();
+            if (input[0].equals("seabattle")) ai1 = new AiBattleMode();
+
+            if (input[1].equals("random")) ai2 = new AiRandMode();
+            if (input[1].equals("combo")) ai2 = new AiCombMode();
+            if (input[1].equals("seabattle")) ai2 = new AiBattleMode();
+
+
         }
 
         AiPlayer p1 = new AiPlayer("p1", ai1);
