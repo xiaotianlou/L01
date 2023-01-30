@@ -1,3 +1,4 @@
+import org.apache.commons.cli.*;
 import pk.*;
 
 import java.util.Collections;
@@ -42,6 +43,32 @@ public class PiratenKarpen {
         int total = 52;
         System.out.println("how many games you want simulation");
         total=s.nextInt();
+
+
+
+//        Options options = new Options();
+//        Option alpha = new Option("ae", "be", false, "combo choose for player");
+//        options.addOption(alpha);
+//// define parser
+//        CommandLine cmd;
+//        CommandLineParser parser = new BasicParser();
+//        HelpFormatter helper = new HelpFormatter();
+//        try {
+//            cmd = parser.parse(options, args);
+//            if(cmd.hasOption("ae")){
+//                System.out.println( "has option");
+//            }else {
+//                System.out.println("not");
+//            }
+//
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+
+
+
+
+
         double p1w = 0;
         double p2w = 0;
 
