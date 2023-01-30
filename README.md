@@ -49,7 +49,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x  |F14  |reload strategy | D   | 01/01/23     |   01/24/28
 | x  |F15  |make sea battle | D    | 01/01/23      | 01/24/28
 | x  |F16  | make battle mode| D   | 01/01/23      | 01/24/28
-| x  |F17  | clean mess| D     |01/01/23     | :-:       | 01/24/28
+| x  |F17  | clean mess| D     |01/01/23     | 01/24/28
 | x  |F18  | make money business card| D    | 01/01/28       | 01/29/28      |
 | x  |F19  | | :-:     | :-:       | :-:       |
 | x  |F20  | | :-:     | :-:       | :-:       |
