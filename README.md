@@ -11,7 +11,6 @@
     * `mvn compile`
   * To run the project in development mode:
   * type the mode in string after start program
-  * 
   * start program with choosed ai mode
     * `mvn -q exec:java -Dexec.args="random combo"`(start with ai slect)
     * `mvn -q exec:java -Dexec.args="combo combo"`(start with ai slect)
