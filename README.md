@@ -42,20 +42,15 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F07 | Score points: 100 * (diamonds + gold coin) | B (F04) | | 
 | x   | F08 | end the game with 6000 point for 1 player | | |
 | x  |F9  |print percentage of win for each player | :-:     | :-:       | :-:       |
-| x  |F10  | | :-:     | :-:       | :-:       |
-| x  |F11  | | :-:     | :-:       | :-:       |
-| x  |F12  | | :-:     | :-:       | :-:       |
-| x  |F13  | | :-:     | :-:       | :-:       |
-| x  |F14  | | :-:     | :-:       | :-:       |
-| x  |F15  | | :-:     | :-:       | :-:       |
-| x  |F16  | | :-:     | :-:       | :-:       |
-| x  |F17  | | :-:     | :-:       | :-:       |
-| x  |F18  | | :-:     | :-:       | :-:       |
+| x  |F10  |wirie the scoring logcial | :-:     | :-:       | :-:       |
+| x  |F11  |making ai mode | :-:     | :-:       | :-:       |
+| x  |F12  | make card bag| :-:     | :-:       | :-:       |
+| x  |F13  |design for card class | :-:     | :-:       | :-:       |
+| x  |F14  |reload strategy | :-:     | :-:       | :-:       |
+| x  |F15  |make sea battle | :-:     | :-:       | :-:       |
+| x  |F16  | make battle mode| :-:     | :-:       | :-:       |
+| x  |F17  | clean mess| :-:     | :-:       | :-:       |
+| x  |F18  | make money business card| :-:     | :-:       | :-:       |
 | x  |F19  | | :-:     | :-:       | :-:       |
 | x  |F20  | | :-:     | :-:       | :-:       |
-| x  |F21  | | :-:     | :-:       | :-:       |
-| x  |F22  | | :-:     | :-:       | :-:       |
-| x  |F23  | | :-:     | :-:       | :-:       |
-| x  |F24  | | :-:     | :-:       | :-:       |
-| x  |F25  | | :-:     | :-:       | :-:       |
 
